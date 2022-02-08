@@ -1,17 +1,17 @@
-// import { Route, Routes } from 'react-router-dom';
-import './App.css';
-// import Articles from './components/Articles/Articles';
+import { Route, Routes } from 'react-router-dom';
+import Articles from './components/Articles/Articles';
 import Topics from './components/Nav-Topics/Nav-Topics';
+import './App.css';
 
-function App() {
+const App = () => {
   return (
     <div className='App'>
       <Topics />
-      {/* <Routes>
+      <Routes>
         <Route path={`/articles`} element={<Articles />} />
-      </Routes> */}
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
