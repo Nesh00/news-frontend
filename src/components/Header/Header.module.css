@@ -1,0 +1,40 @@
+.header {
+  position: relative;
+  color: #000;
+  text-decoration: none;
+  backface-visibility: hidden;
+}
+
+.header__logo {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  font-size: 6rem;
+}
+
+.header__logo--letter {
+  position: absolute;
+  margin: 2.5rem 0 0 4.2rem;
+  color: rgb(192, 14, 14);
+}
+
+.header__logo--rest {
+  position: absolute;
+  display: none;
+}
+
+@media screen and (min-width: 36.5em) {
+  .header__logo {
+    font-size: 8rem;
+  }
+
+  .header__logo--letter {
+    position: absolute;
+    margin: 2.9rem 0 0 5.6rem;
+  }
+  .header__logo--rest {
+    display: block;
+    margin: 6.5rem 0 0 20.5rem;
+    font-size: 4rem;
+  }
+}
