@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getTopics } from '../../utils/api';
-import styles from './Nav-Topics.module.css';
+import styles from './Topics.module.css';
 
 const Topics = () => {
   const [topics, setTopics] = useState([]);
@@ -23,6 +23,7 @@ const Topics = () => {
             <Link
               to={`/articles?topic=${topic.slug}`}
               className={styles.topics__link}
+              onClick={(e) => console.log(e.target)}
             >
               {topic.slug}
             </Link>

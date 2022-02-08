@@ -15,8 +15,9 @@ const Articles = () => {
 
   return (
     <ul className={styles.articles__list}>
+      <h1 className={styles.articles__header}>{topic ? topic : 'All'}</h1>
       {articles.map((article) => {
-        return <Article article={article} />;
+        return <Article key={article.article_id} article={article} />;
       })}
     </ul>
   );

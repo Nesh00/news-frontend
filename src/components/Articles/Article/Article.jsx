@@ -1,48 +1,41 @@
 import { Link } from 'react-router-dom';
 import styles from './Article.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faUserCircle,
-  faThumbsUp,
-  faThumbsDown,
-  faCommentDots,
-} from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faRedRiver } from '@fortawesome/free-brands-svg-icons';
+import formatDate from '../../../utils/formatDate.util';
 
 const Article = ({ article }) => {
   return (
-    <li key={article.article_id} className={styles.articles__item}>
+    <li className={styles.article__item}>
       <Link
         to={`/articles/${article.article_id}`}
         className={styles.articles__link}
       >
-        <div className={styles['articles__user_container']}>
-          <span className={styles.articles__user_details}>
+        <div className={styles.user__container}>
+          <span className={styles.user_details}>
             <FontAwesomeIcon
               icon={faUserCircle}
               size='2x'
-              className={styles.articles__user_avatar}
+              className={styles.user__avatar}
             />
             {article.author}
           </span>
-          <span className={styles.articles__user_details}>
-            {article.created_at}
+          <span className={styles.created_at}>
+            {formatDate(article.created_at)}
           </span>
         </div>
-        <h2 className={styles.articles__header}>{article.title}</h2>
-        <div className={styles['articles__votes--container']}>
-          <FontAwesomeIcon icon={faThumbsUp} size='2x' color='#ff9933' />
-          <span className={styles.articles__vote}>{article.votes}</span>
+        <h2 className={styles.article__header}>{article.title}</h2>
+        <div className={styles.votes__container}>
+          <span className={styles.article__comment_count}>
+            {article.comment_count} comments
+          </span>
           <FontAwesomeIcon
-            icon={faThumbsDown}
-            size='2x'
-            color='#ff9933'
-            className={styles['articles__btn--down']}
-          />
-          <FontAwesomeIcon
-            icon={faCommentDots}
+            icon={faRedRiver}
             size='2x'
             color='#b9b5b5'
-            className={styles.articles__comments}
+            transform={{ rotate: 135 }}
+            title='View Article'
           />
         </div>
       </Link>
