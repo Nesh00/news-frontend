@@ -1,0 +1,32 @@
+.topics__container {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.topics__item {
+  padding: 0.5rem;
+  font-weight: 600;
+  font-size: 2rem;
+  text-transform: lowercase;
+}
+
+.topics__item:not(:last-of-type) {
+  /* margin-right: 1rem; */
+}
+
+.topics__link {
+  text-decoration: none;
+  color: #000;
+}
+
+@media screen and (min-width: 56em) {
+  .topics__container {
+    justify-content: start;
+  }
+
+  .topics__item {
+    font-size: 3rem;
+  }
+}
