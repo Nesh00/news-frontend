@@ -7,6 +7,7 @@ const SliderImg = () => {
   const fadeProperties = {
     duration: 4000,
     autoplay: true,
+    arrows: false,
     pauseOnHover: false,
   };
 
@@ -16,13 +17,11 @@ const SliderImg = () => {
         {fadeImages.map((image) => {
           return (
             <div key={image.caption} className='each-fade'>
-              <div>
-                <img
-                  src={image.url}
-                  alt={image.caption}
-                  className={styles.slider__img}
-                />
-              </div>
+              <img
+                src={image.url}
+                alt={image.caption}
+                className={styles.slider__img}
+              />
               <p className={styles.slider__caption}>{image.caption}</p>
             </div>
           );
