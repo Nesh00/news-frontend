@@ -10,6 +10,7 @@ const Login = () => {
   const [input, setInput] = useState('');
   const [username, setUsername] = useState('');
   const [isOpen, setIsOpen] = useState(false);
+  const [logout, setLogout] = useState(false);
   const { setUser } = useContext(UserContext);
 
   const getInput = (event) => {
@@ -20,6 +21,7 @@ const Login = () => {
     event.preventDefault();
     setUsername(input);
     setInput('');
+    setLogout(false);
   };
 
   useEffect(() => {
@@ -29,7 +31,12 @@ const Login = () => {
   }, [username]);
 
   return (
-    <User isOpen={isOpen} setIsOpen={setIsOpen}>
+    <User
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      logout={logout}
+      setLogout={setLogout}
+    >
       <div className={styles.login__container}>
         <form className={styles.login__form} onSubmit={submitUser}>
           <FontAwesomeIcon

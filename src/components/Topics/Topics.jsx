@@ -14,7 +14,7 @@ const Topics = () => {
     <ul className={styles.topics__container}>
       <li key={'home'} className={styles.topics__item}>
         <Link to={`/articles`} className={styles.topics__link}>
-          All Articles
+          All
         </Link>
       </li>
       {topics.map((topic) => {
@@ -23,7 +23,6 @@ const Topics = () => {
             <Link
               to={`/articles?topic=${topic.slug}`}
               className={styles.topics__link}
-              onClick={(e) => console.log(e.target)}
             >
               {topic.slug}
             </Link>

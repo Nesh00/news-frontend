@@ -1,13 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import styles from './User.module.css';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { UserContext } from '../../../contexts/User';
 import Logo from '../Logo/Logo';
 
-const User = ({ children, isOpen, setIsOpen }) => {
+const User = ({ children, isOpen, setIsOpen, logout, setLogout }) => {
   const { user, setUser } = useContext(UserContext);
-  const [logout, setLogout] = useState(false);
 
   return (
     <div className={styles.user__container}>
@@ -25,8 +24,8 @@ const User = ({ children, isOpen, setIsOpen }) => {
             <p
               className={styles.logout}
               onClick={() => {
-                setUser();
                 setIsOpen((currOpen) => !currOpen);
+                setUser();
               }}
             >
               Logout
@@ -38,6 +37,7 @@ const User = ({ children, isOpen, setIsOpen }) => {
           <FontAwesomeIcon
             icon={faUserCircle}
             size='4x'
+            className={styles.login__img}
             onClick={() => setIsOpen((currOpen) => !currOpen)}
           />
           {isOpen ? children : null}

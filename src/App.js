@@ -6,18 +6,16 @@ import Topics from './components/Topics/Topics';
 import ArticleById from './components/ArticleById/ArticleById';
 import './App.css';
 import Login from './components/TopPage/Login/Login';
+import SliderImg from './components/Slider/Slider';
 
 const App = () => {
   const [user, setUser] = useState({});
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <div className='App'>
-      <UserContext.Provider
-        value={{ user, setUser, isLoggedIn, setIsLoggedIn }}
-      >
+      <UserContext.Provider value={{ user, setUser }}>
         <Login />
-        {/* <Header /> */}
+        <SliderImg />
         <Topics />
         <Routes>
           <Route path={`/articles`} element={<Articles />} />

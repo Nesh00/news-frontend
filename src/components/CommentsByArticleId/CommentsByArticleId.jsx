@@ -15,7 +15,6 @@ const CommentsByArticleId = ({ article_id }) => {
       setIsLoading(false);
     });
   }, [article_id]);
-  console.log(comments);
 
   return (
     <>

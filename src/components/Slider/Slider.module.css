@@ -1,0 +1,24 @@
+.slider__container {
+  margin-top: 4rem;
+}
+
+.slider__img {
+  height: 30rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+.slider__caption {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 36.5em) {
+  .slider__img {
+    border-radius: 5px;
+  }
+
+  .slider__caption {
+    font-size: 2rem;
+  }
+}
