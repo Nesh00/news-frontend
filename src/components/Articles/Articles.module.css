@@ -1,0 +1,12 @@
+.articles__list {
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.articles__header {
+  margin: 4rem 0 1rem 0;
+  font-size: 2.5rem;
+  text-transform: capitalize;
+}
