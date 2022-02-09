@@ -37,6 +37,7 @@ const User = ({ children, isOpen, setIsOpen, logout, setLogout }) => {
           <FontAwesomeIcon
             icon={faUserCircle}
             size='4x'
+            color='#ada9a9'
             className={styles.login__img}
             onClick={() => setIsOpen((currOpen) => !currOpen)}
           />

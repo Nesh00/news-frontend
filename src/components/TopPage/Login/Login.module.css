@@ -1,11 +1,12 @@
-.login__container {
+.overlay {
   height: 110vh;
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: -2rem;
   right: -0.1rem;
   z-index: 3;
   background: rgba(0, 0, 0, 0.205);
+  overflow: hidden;
 }
 
 .close__btn {
@@ -32,13 +33,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2rem;
+  margin: 2rem 0;
   font-size: 2rem;
 }
 .login__input {
+  width: 100%;
   margin-top: 1rem;
   padding: 1rem;
   font-size: 1.6rem;
+  outline: none;
 }
 
 .login__input::placeholder {
@@ -49,4 +52,38 @@
   padding: 0.8rem 2.8rem;
   font-size: 1.6rem;
   cursor: pointer;
+}
+
+@media screen and (min-width: 36.5em) {
+  .login__form {
+    width: 70%;
+  }
+
+  .login__label {
+    font-size: 2.3rem;
+  }
+
+  .login__input {
+    width: 130%;
+  }
+}
+
+@media screen and (min-width: 46em) {
+  .login__form {
+    width: 50%;
+  }
+
+  .login__input {
+    width: 140%;
+  }
+}
+
+@media screen and (min-width: 76em) {
+  .login__form {
+    width: 30%;
+  }
+
+  .login__input {
+    width: 150%;
+  }
 }

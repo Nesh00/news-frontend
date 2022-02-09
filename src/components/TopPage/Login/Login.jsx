@@ -37,7 +37,7 @@ const Login = () => {
       logout={logout}
       setLogout={setLogout}
     >
-      <div className={styles.login__container}>
+      <div className={styles.overlay}>
         <form className={styles.login__form} onSubmit={submitUser}>
           <FontAwesomeIcon
             icon={faClose}
@@ -45,7 +45,7 @@ const Login = () => {
             size='2x'
             onClick={() => setIsOpen((currOpen) => !currOpen)}
           />
-          <FontAwesomeIcon icon={faUserCircle} size='4x' />
+          <FontAwesomeIcon icon={faUserCircle} size='4x' color='#ada9a9' />
           <label className={styles.login__label}>
             User
             <input
