@@ -1,0 +1,45 @@
+.user__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.username {
+  margin: 0 0.5rem 0 auto;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.avatar_url {
+  height: 4rem;
+  width: 4rem;
+  margin-top: -1rem;
+  object-fit: cover;
+  outline: 2px solid #a8a6a6;
+  border-radius: 50%;
+}
+
+.logout {
+  position: absolute;
+  right: 1.2rem;
+  bottom: -7rem;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.logout::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -1.5rem;
+  right: 5%;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 20px solid rgb(255, 255, 255);
+}

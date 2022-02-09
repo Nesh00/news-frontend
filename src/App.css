@@ -1,6 +1,6 @@
 .App {
   margin: 0 auto;
-  background: #fdfbfb;
+  position: relative;
 }
 
 @media screen and (min-width: 36.5em) {
