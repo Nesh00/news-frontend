@@ -30,6 +30,7 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+  cursor: pointer;
 }
 
 .select:first-child {
@@ -102,7 +103,7 @@
 
 .comment_count,
 .votes {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: #837f7f;
 }
 
@@ -111,7 +112,10 @@
 }
 
 .vote {
-  margin-right: 1rem;
+  margin-left: 1rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .comments {
@@ -123,19 +127,35 @@
 }
 
 .comments__item {
-  margin-bottom: 3rem;
-  padding-bottom: 1rem;
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
   border-bottom: 1px solid #cfcaca;
 }
 
 .comments__item:last-of-type {
-  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 .comment__body {
   font-size: 1.3rem;
 }
 
-.add__comment {
+.add__comment,
+.delete__comment,
+.edit__comment {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.add__comment,
+.delete__comment {
   margin-left: auto;
+}
+
+.edit__comment {
+  margin: 0 0 1rem 0;
+  align-self: flex-end;
 }

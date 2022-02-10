@@ -46,6 +46,7 @@ const CommentsByArticleId = ({ article_id }) => {
               return <EachComment key={comment.comment_id} comment={comment} />;
             })}
           </ul>
+          {}
         </>
       )}
     </>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { getArticleById, getUser } from '../../../utils/api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,11 +7,13 @@ import styles from '../Articles.module.css';
 import formatDate from '../../../utils/formatDate.util';
 import CommentsByArticleId from '../../CommentsByArticleId/CommentsByArticleId';
 import Loader from '../../Loader/Loader';
+import { UserContext } from '../../../contexts/User';
 
 const ArticleById = () => {
   const { article_id } = useParams();
   const [article, setArticle] = useState();
-  const [user, setUser] = useState();
+  const [eachUser, setEachUser] = useState();
+  const { user } = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -23,10 +25,13 @@ const ArticleById = () => {
   useEffect(() => {
     article &&
       getUser(article.author).then((userData) => {
-        setUser(userData);
+        setEachUser(userData);
         setIsLoading(false);
       });
   }, [article]);
+
+  const checkMatchingUser =
+    user && eachUser && user.username === eachUser.username;
 
   return (
     <>
@@ -38,8 +43,8 @@ const ArticleById = () => {
             <div className={styles.user__container}>
               <p className={styles.user__details}>
                 <img
-                  src={user.avatar_url}
-                  alt={user.name}
+                  src={eachUser.avatar_url}
+                  alt={eachUser.name}
                   className={styles.user__avatar}
                 />
                 {article.author}
@@ -51,13 +56,18 @@ const ArticleById = () => {
             <h2 className={styles.article__header}>{article.title}</h2>
             <p className={styles.article__body}>{article.body}</p>
             <div className={styles.votes__container}>
-              <FontAwesomeIcon
-                icon={faThumbsUp}
-                size='2x'
-                color='#ff9933'
-                className={styles.vote}
-              />
               <p className={styles.votes}>{article.votes} votes</p>
+              {checkMatchingUser ? (
+                ''
+              ) : (
+                <button className={styles.vote}>
+                  <FontAwesomeIcon
+                    icon={faThumbsUp}
+                    size='2x'
+                    color='#ff9933'
+                  />
+                </button>
+              )}
               <FontAwesomeIcon
                 icon={faCommentDots}
                 size='2x'
