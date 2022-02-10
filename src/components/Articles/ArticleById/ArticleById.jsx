@@ -57,7 +57,7 @@ const ArticleById = () => {
             <p className={styles.article__body}>{article.body}</p>
             <div className={styles.votes__container}>
               <p className={styles.votes}>{article.votes} votes</p>
-              {checkMatchingUser ? (
+              {checkMatchingUser || !user ? (
                 ''
               ) : (
                 <button className={styles.vote}>
@@ -68,13 +68,15 @@ const ArticleById = () => {
                   />
                 </button>
               )}
-              <FontAwesomeIcon
-                icon={faCommentDots}
-                size='2x'
-                color='#ada9a9'
-                className={styles.add__comment}
-                title='View Comments'
-              />
+              {user && (
+                <FontAwesomeIcon
+                  icon={faCommentDots}
+                  size='2x'
+                  color='#ada9a9'
+                  className={styles.add__comment}
+                  title='Add Comment'
+                />
+              )}
             </div>
           </div>
           <CommentsByArticleId article_id={article_id} />

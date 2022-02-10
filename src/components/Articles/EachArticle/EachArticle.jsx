@@ -23,7 +23,7 @@ const EachArticle = ({ article }) => {
   }, [article.author]);
 
   return (
-    <li className={styles.article__item}>
+    <li className={styles.article__item} title='View Article'>
       {isLoaded && (
         <Link
           to={`/articles/${article.article_id}`}
@@ -45,7 +45,7 @@ const EachArticle = ({ article }) => {
           <h2 className={styles.article__header}>{article.title}</h2>
           <div className={styles.votes__container}>
             <p className={styles.votes}>{article.votes} votes</p>
-            {checkMatchingUser ? (
+            {checkMatchingUser || !user ? (
               ''
             ) : (
               <button className={styles.vote}>

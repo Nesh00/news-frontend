@@ -46,11 +46,16 @@ const EachComment = ({ comment }) => {
       <p className={styles.comment__body}>{comment.body}</p>
       <div className={styles.votes__container}>
         <p className={styles.votes}>{comment.votes} votes</p>
-        {checkMatchingUser ? (
+        {checkMatchingUser || !user ? (
           ''
         ) : (
           <button className={styles.vote}>
-            <FontAwesomeIcon icon={faThumbsUp} size='xl' color='#ff9933' />
+            <FontAwesomeIcon
+              icon={faThumbsUp}
+              size='xl'
+              color='#ff9933'
+              title='Edit Comment'
+            />
           </button>
         )}
         {checkMatchingUser ? (
@@ -59,6 +64,7 @@ const EachComment = ({ comment }) => {
               icon={faTrashCan}
               size='xl'
               color='#ada9a9'
+              title='Delete Comment'
               className={styles.vote}
             />
           </button>
