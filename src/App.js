@@ -3,7 +3,7 @@ import { UserContext } from './contexts/User';
 import { useState } from 'react';
 import Articles from './components/Articles/Articles';
 import Topics from './components/Topics/Topics';
-import ArticleById from './components/ArticleById/ArticleById';
+import ArticleById from './components/Articles/ArticleById/ArticleById';
 import './App.css';
 import Login from './components/TopPage/Login/Login';
 import SliderImg from './components/Slider/Slider';

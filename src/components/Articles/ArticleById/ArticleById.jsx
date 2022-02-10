@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getArticleById, getUser } from '../../utils/api';
+import { getArticleById, getUser } from '../../../utils/api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faCommentDots } from '@fortawesome/free-solid-svg-icons';
-import styles from '../Articles/Articles.module.css';
-import formatDate from '../../utils/formatDate.util';
-import CommentsByArticleId from '../CommentsByArticleId/CommentsByArticleId';
-import Loader from '../Loader/Loader';
+import styles from '../Articles.module.css';
+import formatDate from '../../../utils/formatDate.util';
+import CommentsByArticleId from '../../CommentsByArticleId/CommentsByArticleId';
+import Loader from '../../Loader/Loader';
 
 const ArticleById = () => {
   const { article_id } = useParams();
