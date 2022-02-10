@@ -4,9 +4,9 @@ import { getUser } from '../../../utils/api';
 import formatDate from '../../../utils/formatDate.util';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
-import styles from './Article.module.css';
+import styles from '../Articles.module.css';
 
-const Article = ({ article }) => {
+const EachArticle = ({ article }) => {
   const [user, setUser] = useState();
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -56,4 +56,4 @@ const Article = ({ article }) => {
   );
 };
 
-export default Article;
+export default EachArticle;

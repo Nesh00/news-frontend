@@ -13,10 +13,11 @@
   font-weight: 600;
   font-size: 2rem;
   text-transform: lowercase;
+  background: #fff;
   border-left: 1px solid rgba(100, 100, 111, 0.3);
   border-top: 1px solid rgba(100, 100, 111, 0.3);
   border-radius: 5px 0 0 0;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(100, 100, 111, 0.1) 0px 7px 29px 0px;
 }
 
 .topics__link {

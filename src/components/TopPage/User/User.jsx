@@ -9,7 +9,7 @@ const User = ({ children, isOpen, setIsOpen, logout, setLogout }) => {
   const { user, setUser } = useContext(UserContext);
 
   return (
-    <div className={styles.user__container}>
+    <header className={styles.user__container}>
       <Logo />
       {user ? (
         <>
@@ -44,7 +44,7 @@ const User = ({ children, isOpen, setIsOpen, logout, setLogout }) => {
           {isOpen ? children : null}
         </>
       )}
-    </div>
+    </header>
   );
 };
 

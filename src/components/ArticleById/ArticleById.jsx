@@ -1,61 +1,68 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getArticleById } from '../../utils/api';
+import { getArticleById, getUser } from '../../utils/api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faSpinner,
-  faUserCircle,
-  faThumbsUp,
-  faThumbsDown,
-  faCommentDots,
-} from '@fortawesome/free-solid-svg-icons';
-import styles from '../Articles/Article/Article.module.css';
+import { faThumbsUp, faCommentDots } from '@fortawesome/free-solid-svg-icons';
+import styles from '../Articles/Articles.module.css';
 import formatDate from '../../utils/formatDate.util';
 import CommentsByArticleId from '../CommentsByArticleId/CommentsByArticleId';
+import Loader from '../Loader/Loader';
 
 const ArticleById = () => {
-  const [article, setArticle] = useState();
   const { article_id } = useParams();
+  const [article, setArticle] = useState();
+  const [user, setUser] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getArticleById(article_id).then((articleData) => {
       setArticle(articleData);
-      setIsLoading(false);
     });
   }, [article_id]);
+
+  useEffect(() => {
+    article &&
+      getUser(article.author).then((userData) => {
+        setUser(userData);
+        setIsLoading(false);
+      });
+  }, [article]);
 
   return (
     <>
       {isLoading ? (
-        <FontAwesomeIcon icon={faSpinner} size='8x' spin />
+        <Loader />
       ) : (
         <>
           <div className={styles.article__item}>
             <div className={styles.user__container}>
-              <span className={styles.user_details}>
-                <FontAwesomeIcon
-                  icon={faUserCircle}
-                  size='2x'
+              <p className={styles.user__details}>
+                <img
+                  src={user.avatar_url}
+                  alt={user.name}
                   className={styles.user__avatar}
                 />
                 {article.author}
-              </span>
-              <span className={styles.created_at}>
+              </p>
+              <p className={styles.created_at}>
                 {formatDate(article.created_at)}
-              </span>
+              </p>
             </div>
             <h2 className={styles.article__header}>{article.title}</h2>
             <p className={styles.article__body}>{article.body}</p>
-
             <div className={styles.votes__container}>
-              <FontAwesomeIcon icon={faThumbsUp} size='2x' color='#ff9933' />
-              <span className={styles.article__vote}>{article.votes}</span>
+              <FontAwesomeIcon
+                icon={faThumbsUp}
+                size='2x'
+                color='#ff9933'
+                className={styles.vote}
+              />
+              <p className={styles.votes}>{article.votes} votes</p>
               <FontAwesomeIcon
                 icon={faCommentDots}
                 size='2x'
-                color='#b9b5b5'
-                className={styles.article__comments}
+                color='#ada9a9'
+                className={styles.add__comment}
                 title='View Comments'
               />
             </div>

@@ -12,9 +12,9 @@ export const getTopics = () => {
   return baseApi.get(`/topics`).then(({ data }) => data.topics);
 };
 
-export const getArticles = (topic, order) => {
+export const getArticles = (topic, sort_by, order) => {
   return baseApi
-    .get(`/articles`, { params: { topic, order } })
+    .get(`/articles`, { params: { topic, sort_by, order } })
     .then(({ data }) => data.articles);
 };
 
@@ -30,8 +30,8 @@ export const getArticleById = (article_id) => {
 //     .then(({ data }) => data.article);
 // };
 
-export const getCommentsByArticleId = (article_id) => {
+export const getCommentsByArticleId = (article_id, sort_by, order) => {
   return baseApi
-    .get(`/articles/${article_id}/comments`)
+    .get(`/articles/${article_id}/comments`, { params: { sort_by, order } })
     .then(({ data }) => data.comments);
 };

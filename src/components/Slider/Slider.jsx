@@ -12,7 +12,7 @@ const SliderImg = () => {
   };
 
   return (
-    <div className={`slide-container ${styles.slider__container}`}>
+    <section className={`slide-container ${styles.slider__container}`}>
       <Fade {...fadeProperties}>
         {fadeImages.map((image) => {
           return (
@@ -27,7 +27,7 @@ const SliderImg = () => {
           );
         })}
       </Fade>
-    </div>
+    </section>
   );
 };
 

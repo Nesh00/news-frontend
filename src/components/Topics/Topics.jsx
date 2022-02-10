@@ -11,25 +11,27 @@ const Topics = () => {
   }, []);
 
   return (
-    <ul className={styles.topics__container}>
-      <li key={'home'} className={styles.topics__item}>
-        <Link to={`/articles`} className={styles.topics__link}>
-          All
-        </Link>
-      </li>
-      {topics.map((topic) => {
-        return (
-          <li key={topic.slug} className={styles.topics__item}>
-            <Link
-              to={`/articles?topic=${topic.slug}`}
-              className={styles.topics__link}
-            >
-              {topic.slug}
-            </Link>
-          </li>
-        );
-      })}
-    </ul>
+    <nav>
+      <ul className={styles.topics__container}>
+        <li key={'home'} className={styles.topics__item}>
+          <Link to={`/articles`} className={styles.topics__link}>
+            All
+          </Link>
+        </li>
+        {topics.map((topic) => {
+          return (
+            <li key={topic.slug} className={styles.topics__item}>
+              <Link
+                to={`/articles?topic=${topic.slug}`}
+                className={styles.topics__link}
+              >
+                {topic.slug}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
   );
 };
 

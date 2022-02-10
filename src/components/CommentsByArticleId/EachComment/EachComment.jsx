@@ -3,7 +3,7 @@ import { getUser } from '../../../utils/api';
 import formatDate from '../../../utils/formatDate.util';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
-import styles from '../../Articles/Article/Article.module.css';
+import styles from '../../Articles/Articles.module.css';
 
 const EachComment = ({ comment }) => {
   const [user, setUser] = useState();
@@ -11,10 +11,9 @@ const EachComment = ({ comment }) => {
   useEffect(() => {
     getUser(comment.author).then((userData) => setUser(userData));
   }, [comment]);
-  console.log(comment);
 
   return (
-    <li key={comment.comment_id} className={styles.comments__item}>
+    <li className={styles.comments__item}>
       <div className={styles.user__container}>
         <p className={styles.user__details}>
           {user && (
