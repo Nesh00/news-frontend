@@ -52,6 +52,7 @@ const Login = () => {
               type='text'
               value={input}
               placeholder='Enter Username'
+              required
               className={styles.login__input}
               onChange={getInput}
             />

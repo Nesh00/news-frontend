@@ -8,7 +8,6 @@
 
 .select__container {
   margin-top: 6rem;
-  /* padding: 0 1.5rem; */
   display: flex;
   justify-content: end;
 }
@@ -27,9 +26,6 @@
   border-radius: 5px;
   outline: none;
   background: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   cursor: pointer;
 }
 
@@ -158,4 +154,106 @@
 .edit__comment {
   margin: 0 0 1rem 0;
   align-self: flex-end;
+}
+
+.overlay {
+  height: 110vh;
+  width: 100%;
+  position: fixed;
+  top: -2rem;
+  right: -0.1rem;
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.205);
+  overflow: hidden;
+}
+
+.close__btn {
+  margin-left: auto;
+  color: #a8a1a1;
+  cursor: pointer;
+}
+
+.comment__form {
+  width: 90%;
+  padding: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 5px;
+  z-index: 5;
+}
+
+.comment__label {
+  width: 100%;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+}
+
+.comment__area {
+  width: 100%;
+  height: 20rem;
+  margin-top: 1rem;
+  font-size: 1.7rem;
+  text-indent: 0.5rem;
+  outline: none;
+}
+
+.comment__btn {
+  padding: 0.8rem 2.8rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 36.5em) {
+  .comment__form {
+    width: 70%;
+  }
+
+  .comment__label {
+    font-size: 2.2rem;
+  }
+}
+@media screen and (min-width: 46em) {
+  .comment__form {
+    width: 50%;
+  }
+
+  .comment__label {
+    margin-bottom: 3rem;
+    font-size: 2.3rem;
+  }
+
+  .comment__area {
+    height: 20rem;
+    margin-top: 1.2rem;
+    font-size: 2rem;
+  }
+
+  .comment__btn {
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width: 76em) {
+  .comment__form {
+    width: 30%;
+  }
+
+  .comment__label {
+    font-size: 2.6rem;
+  }
+
+  .comment__area {
+    font-size: 2.3rem;
+  }
+
+  .comment__btn {
+    font-size: 2.3rem;
+  }
 }

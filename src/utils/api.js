@@ -24,14 +24,22 @@ export const getArticleById = (article_id) => {
     .then(({ data }) => data.article);
 };
 
-// export const patchArticleById = (article_id, data) => {
-//   return baseApi
-//     .patch(`/articles/${article_id}`, data)
-//     .then(({ data }) => data.article);
-// };
-
 export const getCommentsByArticleId = (article_id, sort_by, order) => {
   return baseApi
     .get(`/articles/${article_id}/comments`, { params: { sort_by, order } })
     .then(({ data }) => data.comments);
 };
+
+export const postComment = (article_id, username, body) => {
+  return baseApi.post(`/articles/${article_id}/comments`, {
+    article_id,
+    username,
+    body,
+  });
+};
+
+// export const patchArticleById = (article_id, data) => {
+//   return baseApi
+//     .patch(`/articles/${article_id}`, data)
+//     .then(({ data }) => data.article);
+// };

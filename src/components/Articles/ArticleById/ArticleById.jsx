@@ -8,6 +8,7 @@ import formatDate from '../../../utils/formatDate.util';
 import CommentsByArticleId from '../../CommentsByArticleId/CommentsByArticleId';
 import Loader from '../../Loader/Loader';
 import { UserContext } from '../../../contexts/User';
+import AddCommentForm from '../../CommentsByArticleId/AddCommentForm/AddCommentForm';
 
 const ArticleById = () => {
   const { article_id } = useParams();
@@ -15,6 +16,7 @@ const ArticleById = () => {
   const [eachUser, setEachUser] = useState();
   const { user } = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     getArticleById(article_id).then((articleData) => {
@@ -75,10 +77,16 @@ const ArticleById = () => {
                   color='#ada9a9'
                   className={styles.add__comment}
                   title='Add Comment'
+                  onClick={() => setIsOpen((currOpen) => !currOpen)}
                 />
               )}
             </div>
           </div>
+          <AddCommentForm
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+            article_id={article_id}
+          />
           <CommentsByArticleId article_id={article_id} />
         </>
       )}

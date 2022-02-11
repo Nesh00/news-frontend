@@ -30,6 +30,7 @@
   z-index: 5;
 }
 .login__label {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,7 +41,7 @@
   width: 100%;
   margin-top: 1rem;
   padding: 1rem;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   outline: none;
 }
 
@@ -60,11 +61,7 @@
   }
 
   .login__label {
-    font-size: 2.3rem;
-  }
-
-  .login__input {
-    width: 130%;
+    font-size: 2.2rem;
   }
 }
 
@@ -73,8 +70,16 @@
     width: 50%;
   }
 
+  .login__label {
+    font-size: 2.3rem;
+  }
+
   .login__input {
-    width: 140%;
+    font-size: 2rem;
+  }
+
+  .login__btn {
+    font-size: 2rem;
   }
 }
 
@@ -83,7 +88,15 @@
     width: 30%;
   }
 
+  .login__label {
+    font-size: 2.6rem;
+  }
+
   .login__input {
-    width: 150%;
+    font-size: 2.3rem;
+  }
+
+  .login__btn {
+    font-size: 2.3rem;
   }
 }
