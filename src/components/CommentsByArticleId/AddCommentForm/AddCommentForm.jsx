@@ -2,12 +2,15 @@ import styles from '../../Articles/Articles.module.css';
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../../contexts/User';
 import { postComment } from '../../../utils/api';
+import { formatDate } from '../../../utils/helperFunctions.util';
 import { CloseBtn } from '../../Buttons/Buttons';
 
 const AddCommentForm = ({ isOpen, setIsOpen, article_id, setComments }) => {
   const [input, setInput] = useState('');
   const [addComment, setAddComment] = useState('');
   const { user } = useContext(UserContext);
+  const date = new Date();
+  const timestamp = date.getTime();
 
   const getInput = (event) => {
     setInput(event.target.value);
@@ -26,10 +29,14 @@ const AddCommentForm = ({ isOpen, setIsOpen, article_id, setComments }) => {
   };
 
   useEffect(() => {
-    addComment.length > 0 &&
-      postComment(article_id, user.username, addComment).then((com) => {
-        setComments((currComments) => [com, ...currComments]);
-      });
+    const fakePost = {
+      author: user.username,
+      body: addComment,
+      created_at: formatDate(timestamp),
+    };
+
+    addComment && setComments((currComments) => [fakePost, ...currComments]);
+    addComment && postComment(article_id, user.username, addComment);
   }, [addComment]);
 
   return (

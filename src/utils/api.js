@@ -40,6 +40,10 @@ export const postComment = (article_id, username, body) => {
     .then(({ data }) => data.comment);
 };
 
+export const deleteComment = (comment_id) => {
+  return baseApi.delete(`comments/${comment_id}`);
+};
+
 // export const patchArticleById = (article_id, data) => {
 //   return baseApi
 //     .patch(`/articles/${article_id}`, data)

@@ -12,6 +12,7 @@ const CommentsByArticleId = ({ article_id, comments, setComments }) => {
   const sortByHandler = (event) => {
     setSortBy(event.target.value);
   };
+
   const orderHandler = (event) => {
     setOrder(event.target.value);
   };
@@ -21,7 +22,7 @@ const CommentsByArticleId = ({ article_id, comments, setComments }) => {
       setComments(commentsData);
       setIsLoading(false);
     });
-  }, [article_id, sortBy, order]);
+  }, [article_id, sortBy, order, setComments]);
 
   return (
     <>
@@ -41,8 +42,16 @@ const CommentsByArticleId = ({ article_id, comments, setComments }) => {
             </select>
           </div>
           <ul className={styles.comments}>
-            {comments.map((comment) => {
-              return <EachComment key={comment.comment_id} comment={comment} />;
+            {comments.map((comment, commentIndex) => {
+              return (
+                <EachComment
+                  key={commentIndex}
+                  commentKey={commentIndex}
+                  comment={comment}
+                  comments={comments}
+                  setComments={setComments}
+                />
+              );
             })}
           </ul>
         </>

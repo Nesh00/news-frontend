@@ -49,7 +49,7 @@ export const EditBtn = ({ size, item }) => {
   );
 };
 
-export const DeleteBtn = ({ size, item }) => {
+export const DeleteBtn = ({ size, item, deleteItem }) => {
   return (
     <button className={styles.delete__comment}>
       <FontAwesomeIcon
@@ -58,6 +58,7 @@ export const DeleteBtn = ({ size, item }) => {
         color='#ada9a9'
         title={`Delete ${item}`}
         className={styles.vote}
+        onClick={deleteItem}
       />
     </button>
   );

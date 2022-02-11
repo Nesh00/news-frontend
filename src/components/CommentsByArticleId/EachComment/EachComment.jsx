@@ -1,16 +1,21 @@
 import styles from '../../Articles/Articles.module.css';
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../../contexts/User';
-import { getUser } from '../../../utils/api';
+import { deleteComment, getUser } from '../../../utils/api';
 import {
   formatDate,
   checkMatchingUser,
 } from '../../../utils/helperFunctions.util';
 import { DeleteBtn, EditBtn, LikeBtn } from '../../Buttons/Buttons';
 
-const EachComment = ({ comment }) => {
-  const [eachUser, setEachUser] = useState();
+const EachComment = ({ comment, comments, setComments, commentKey }) => {
   const { user } = useContext(UserContext);
+  const [eachUser, setEachUser] = useState();
+
+  const deleteCommentHandler = () => {
+    deleteComment(comment.comment_id);
+    setComments(comments.filter((_, key) => key !== commentKey));
+  };
 
   useEffect(() => {
     getUser(comment.author).then((userData) => setEachUser(userData));
@@ -39,7 +44,11 @@ const EachComment = ({ comment }) => {
         <p className={styles.votes}>{comment.votes} votes</p>
         {checkMatchingUser(user, eachUser) || !user || <LikeBtn size={'xl'} />}
         {checkMatchingUser(user, eachUser) && (
-          <DeleteBtn size={'xl'} item={'Comment'} />
+          <DeleteBtn
+            size={'xl'}
+            item={'Comment'}
+            deleteItem={deleteCommentHandler}
+          />
         )}
       </div>
     </li>
