@@ -1,5 +1,5 @@
 .topics__container {
-  margin: 0 1rem 4rem 1rem;
+  margin: 0 0 4rem 0;
   margin-top: 5rem;
   display: flex;
   justify-content: start;
@@ -27,6 +27,12 @@
 
 .topics__link:hover {
   color: rgb(100, 100, 100);
+}
+
+@media screen and (min-width: 36.5em) {
+  .topics__container {
+    margin: 6rem 1.5rem 6rem 1.5rem;
+  }
 }
 
 @media screen and (min-width: 56em) {

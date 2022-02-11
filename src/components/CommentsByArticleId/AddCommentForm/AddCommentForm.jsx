@@ -1,13 +1,12 @@
-import { faClose } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styles from '../../Articles/Articles.module.css';
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../../contexts/User';
 import { postComment } from '../../../utils/api';
-import styles from '../../Articles/Articles.module.css';
+import { CloseBtn } from '../../Buttons/Buttons';
 
-const AddCommentForm = ({ isOpen, setIsOpen, article_id }) => {
+const AddCommentForm = ({ isOpen, setIsOpen, article_id, setComments }) => {
   const [input, setInput] = useState('');
-  const [comment, setComment] = useState('');
+  const [addComment, setAddComment] = useState('');
   const { user } = useContext(UserContext);
 
   const getInput = (event) => {
@@ -16,7 +15,7 @@ const AddCommentForm = ({ isOpen, setIsOpen, article_id }) => {
 
   const addCommentHandler = (event) => {
     event.preventDefault();
-    setComment(input);
+    setAddComment(input);
     setInput('');
     setIsOpen(false);
   };
@@ -27,22 +26,18 @@ const AddCommentForm = ({ isOpen, setIsOpen, article_id }) => {
   };
 
   useEffect(() => {
-    comment.length > 0 && postComment(article_id, user.username, comment);
-  }, [comment]);
-  console.log(comment);
+    addComment.length > 0 &&
+      postComment(article_id, user.username, addComment).then((com) => {
+        setComments((currComments) => [com, ...currComments]);
+      });
+  }, [addComment]);
 
   return (
     <>
       {isOpen && (
         <div className={styles.overlay}>
           <form className={styles.comment__form} onSubmit={addCommentHandler}>
-            <FontAwesomeIcon
-              icon={faClose}
-              className={styles.close__btn}
-              size='2x'
-              onClick={closeCommentHandler}
-            />
-
+            <CloseBtn size={'2x'} closeEvent={closeCommentHandler} />
             <label className={styles.comment__label}>
               Add Comment
               <textarea
@@ -52,7 +47,7 @@ const AddCommentForm = ({ isOpen, setIsOpen, article_id }) => {
                 onChange={getInput}
               ></textarea>
             </label>
-            <button className={styles.comment__btn}>Add Comment</button>
+            <button className={styles.comment__btn}>add</button>
           </form>
         </div>
       )}

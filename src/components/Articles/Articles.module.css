@@ -116,7 +116,7 @@
 
 .comments {
   margin: 1rem 0 4rem 0;
-  padding: 2rem;
+  padding: 0 2rem 2rem 2rem;
   list-style: none;
   border: 1px solid #cfcaca;
   border-radius: 5px;
@@ -169,8 +169,9 @@
 
 .close__btn {
   margin-left: auto;
-  color: #a8a1a1;
   cursor: pointer;
+  border: none;
+  background: transparent;
 }
 
 .comment__form {
@@ -208,6 +209,7 @@
 .comment__btn {
   padding: 0.8rem 2.8rem;
   font-size: 1.6rem;
+  text-transform: capitalize;
   cursor: pointer;
 }
 

@@ -1,7 +1,7 @@
+import styles from './Articles.module.css';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { getArticles } from '../../utils/api';
-import styles from './Articles.module.css';
 import EachArticle from './EachArticle/EachArticle';
 import Loader from '../Loader/Loader';
 

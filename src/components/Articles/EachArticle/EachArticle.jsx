@@ -1,19 +1,18 @@
-import { Link } from 'react-router-dom';
-import { useState, useEffect, useContext } from 'react';
-import { getUser } from '../../../utils/api';
-import formatDate from '../../../utils/formatDate.util';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import styles from '../Articles.module.css';
+import { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { UserContext } from '../../../contexts/User';
+import { getUser } from '../../../utils/api';
+import {
+  formatDate,
+  checkMatchingUser,
+} from '../../../utils/helperFunctions.util';
+import { LikeBtn } from '../../Buttons/Buttons';
 
 const EachArticle = ({ article }) => {
-  const [eachUser, setEachUser] = useState();
   const { user } = useContext(UserContext);
+  const [eachUser, setEachUser] = useState();
   const [isLoaded, setIsLoaded] = useState(false);
-
-  const checkMatchingUser =
-    user && eachUser && user.username === eachUser.username;
 
   useEffect(() => {
     getUser(article.author).then((userData) => {
@@ -45,12 +44,8 @@ const EachArticle = ({ article }) => {
           <h2 className={styles.article__header}>{article.title}</h2>
           <div className={styles.votes__container}>
             <p className={styles.votes}>{article.votes} votes</p>
-            {checkMatchingUser || !user ? (
-              ''
-            ) : (
-              <button className={styles.vote}>
-                <FontAwesomeIcon icon={faThumbsUp} size='2x' color='#ff9933' />
-              </button>
+            {checkMatchingUser(user, eachUser) || !user || (
+              <LikeBtn size={'2x'} />
             )}
             <p className={styles.comment_count}>
               {article.comment_count} comments

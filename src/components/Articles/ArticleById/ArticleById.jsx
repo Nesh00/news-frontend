@@ -1,20 +1,23 @@
+import styles from '../Articles.module.css';
 import { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { getArticleById, getUser } from '../../../utils/api';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp, faCommentDots } from '@fortawesome/free-solid-svg-icons';
-import styles from '../Articles.module.css';
-import formatDate from '../../../utils/formatDate.util';
-import CommentsByArticleId from '../../CommentsByArticleId/CommentsByArticleId';
-import Loader from '../../Loader/Loader';
 import { UserContext } from '../../../contexts/User';
+import { getArticleById, getUser } from '../../../utils/api';
+import {
+  formatDate,
+  checkMatchingUser,
+} from '../../../utils/helperFunctions.util';
+import CommentsByArticleId from '../../CommentsByArticleId/CommentsByArticleId';
 import AddCommentForm from '../../CommentsByArticleId/AddCommentForm/AddCommentForm';
+import Loader from '../../Loader/Loader';
+import { AddCommentBtn, LikeBtn } from '../../Buttons/Buttons';
 
 const ArticleById = () => {
+  const { user } = useContext(UserContext);
+  const [eachUser, setEachUser] = useState();
   const { article_id } = useParams();
   const [article, setArticle] = useState();
-  const [eachUser, setEachUser] = useState();
-  const { user } = useContext(UserContext);
+  const [comments, setComments] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -31,9 +34,6 @@ const ArticleById = () => {
         setIsLoading(false);
       });
   }, [article]);
-
-  const checkMatchingUser =
-    user && eachUser && user.username === eachUser.username;
 
   return (
     <>
@@ -59,35 +59,23 @@ const ArticleById = () => {
             <p className={styles.article__body}>{article.body}</p>
             <div className={styles.votes__container}>
               <p className={styles.votes}>{article.votes} votes</p>
-              {checkMatchingUser || !user ? (
-                ''
-              ) : (
-                <button className={styles.vote}>
-                  <FontAwesomeIcon
-                    icon={faThumbsUp}
-                    size='2x'
-                    color='#ff9933'
-                  />
-                </button>
+              {checkMatchingUser(user, eachUser) || !user || (
+                <LikeBtn size={'2x'} />
               )}
-              {user && (
-                <FontAwesomeIcon
-                  icon={faCommentDots}
-                  size='2x'
-                  color='#ada9a9'
-                  className={styles.add__comment}
-                  title='Add Comment'
-                  onClick={() => setIsOpen((currOpen) => !currOpen)}
-                />
-              )}
+              {user && <AddCommentBtn setIsOpen={setIsOpen} size={'2x'} />}
             </div>
           </div>
           <AddCommentForm
             isOpen={isOpen}
             setIsOpen={setIsOpen}
             article_id={article_id}
+            setComments={setComments}
           />
-          <CommentsByArticleId article_id={article_id} />
+          <CommentsByArticleId
+            article_id={article_id}
+            comments={comments}
+            setComments={setComments}
+          />
         </>
       )}
     </>

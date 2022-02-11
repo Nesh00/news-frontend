@@ -1,14 +1,13 @@
+import styles from '../Articles/Articles.module.css';
 import { useEffect, useState } from 'react';
 import { getCommentsByArticleId } from '../../utils/api';
-import styles from '../Articles/Articles.module.css';
 import EachComment from './EachComment/EachComment';
 import Loader from '../Loader/Loader';
 
-const CommentsByArticleId = ({ article_id }) => {
-  const [comments, setComments] = useState();
-  const [isLoading, setIsLoading] = useState(true);
+const CommentsByArticleId = ({ article_id, comments, setComments }) => {
   const [sortBy, setSortBy] = useState('created_at');
   const [order, setOrder] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
   const sortByHandler = (event) => {
     setSortBy(event.target.value);
@@ -46,7 +45,6 @@ const CommentsByArticleId = ({ article_id }) => {
               return <EachComment key={comment.comment_id} comment={comment} />;
             })}
           </ul>
-          {}
         </>
       )}
     </>

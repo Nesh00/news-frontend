@@ -1,11 +1,11 @@
 import { Fade } from 'react-slideshow-image';
-import { fadeImages } from '../../images/fadeImages';
+import { sliderImages } from '../../images/sliderImages';
 import 'react-slideshow-image/dist/styles.css';
 import styles from './Slider.module.css';
 
 const SliderImg = () => {
-  const fadeProperties = {
-    duration: 4000,
+  const sliderProperties = {
+    duration: 5000,
     autoplay: true,
     arrows: false,
     pauseOnHover: false,
@@ -13,8 +13,8 @@ const SliderImg = () => {
 
   return (
     <section className={`slide-container ${styles.slider__container}`}>
-      <Fade {...fadeProperties}>
-        {fadeImages.map((image) => {
+      <Fade {...sliderProperties}>
+        {sliderImages.map((image) => {
           return (
             <div key={image.caption} className='each-fade'>
               <img
