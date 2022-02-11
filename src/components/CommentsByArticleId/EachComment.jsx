@@ -1,12 +1,12 @@
-import styles from '../../Articles/Articles.module.css';
+import styles from '../../css/Articles&Comments.module.css';
 import { useContext, useEffect, useState } from 'react';
-import { UserContext } from '../../../contexts/User';
-import { deleteComment, getUser } from '../../../utils/api';
+import { UserContext } from '../../contexts/User';
+import { deleteComment, getUser } from '../../utils/api';
 import {
   formatDate,
   checkMatchingUser,
-} from '../../../utils/helperFunctions.util';
-import { DeleteBtn, EditBtn, LikeBtn } from '../../Buttons/Buttons';
+} from '../../utils/helperFunctions.util';
+import { DeleteBtn, EditBtn, LikeBtn } from '../Buttons/Buttons';
 
 const EachComment = ({ comment, comments, setComments, commentKey }) => {
   const { user } = useContext(UserContext);

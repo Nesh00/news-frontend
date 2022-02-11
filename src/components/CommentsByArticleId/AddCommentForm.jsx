@@ -1,9 +1,9 @@
-import styles from '../../Articles/Articles.module.css';
+import styles from '../../css/Articles&Comments.module.css';
 import { useContext, useEffect, useState } from 'react';
-import { UserContext } from '../../../contexts/User';
-import { postComment } from '../../../utils/api';
-import { formatDate } from '../../../utils/helperFunctions.util';
-import { CloseBtn } from '../../Buttons/Buttons';
+import { UserContext } from '../../contexts/User';
+import { postComment } from '../../utils/api';
+import { formatDate } from '../../utils/helperFunctions.util';
+import { CloseBtn } from '../Buttons/Buttons';
 
 const AddCommentForm = ({ isOpen, setIsOpen, article_id, setComments }) => {
   const [input, setInput] = useState('');
@@ -30,7 +30,7 @@ const AddCommentForm = ({ isOpen, setIsOpen, article_id, setComments }) => {
 
   useEffect(() => {
     const fakePost = {
-      author: user.username,
+      author: user && user.username,
       body: addComment,
       created_at: formatDate(timestamp),
     };

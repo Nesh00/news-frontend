@@ -1,7 +1,7 @@
-import styles from '../Articles/Articles.module.css';
+import styles from '../../css/Articles&Comments.module.css';
 import { useEffect, useState } from 'react';
 import { getCommentsByArticleId } from '../../utils/api';
-import EachComment from './EachComment/EachComment';
+import EachComment from './EachComment';
 import Loader from '../Loader/Loader';
 
 const CommentsByArticleId = ({ article_id, comments, setComments }) => {

@@ -1,4 +1,4 @@
-import styles from '../Articles/Articles.module.css';
+import styles from '../../css/Articles&Comments.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faThumbsUp,

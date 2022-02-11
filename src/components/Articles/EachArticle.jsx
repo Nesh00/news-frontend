@@ -1,13 +1,13 @@
-import styles from '../Articles.module.css';
+import styles from '../../css/Articles&Comments.module.css';
 import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { UserContext } from '../../../contexts/User';
-import { getUser } from '../../../utils/api';
+import { UserContext } from '../../contexts/User';
+import { getUser } from '../../utils/api';
 import {
   formatDate,
   checkMatchingUser,
-} from '../../../utils/helperFunctions.util';
-import { LikeBtn } from '../../Buttons/Buttons';
+} from '../../utils/helperFunctions.util';
+import { LikeBtn } from '../Buttons/Buttons';
 
 const EachArticle = ({ article }) => {
   const { user } = useContext(UserContext);

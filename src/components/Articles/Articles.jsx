@@ -1,8 +1,8 @@
-import styles from './Articles.module.css';
+import styles from '../../css/Articles&Comments.module.css';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { getArticles } from '../../utils/api';
-import EachArticle from './EachArticle/EachArticle';
+import EachArticle from './EachArticle';
 import Loader from '../Loader/Loader';
 
 const Articles = () => {

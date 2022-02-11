@@ -1,7 +1,7 @@
+import styles from '../../css/Topics.module.css';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getTopics } from '../../utils/api';
-import styles from './Topics.module.css';
 
 const Topics = () => {
   const [topics, setTopics] = useState([]);

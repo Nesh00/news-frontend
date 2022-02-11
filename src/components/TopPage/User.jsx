@@ -1,8 +1,8 @@
-import styles from './User.module.css';
+import styles from '../../css/User.module.css';
 import { useContext } from 'react';
-import { UserContext } from '../../../contexts/User';
-import Logo from '../Logo/Logo';
-import { AvatarIcon } from '../../Buttons/Buttons';
+import { UserContext } from '../../contexts/User';
+import Logo from './Logo';
+import { AvatarIcon } from '../Buttons/Buttons';
 
 const User = ({ children, isOpen, setIsOpen, logout, setLogout }) => {
   const { user, setUser } = useContext(UserContext);

@@ -1,16 +1,16 @@
-import styles from '../Articles.module.css';
+import styles from '../../css/Articles&Comments.module.css';
 import { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { UserContext } from '../../../contexts/User';
-import { getArticleById, getUser } from '../../../utils/api';
+import { UserContext } from '../../contexts/User';
+import { getArticleById, getUser } from '../../utils/api';
 import {
   formatDate,
   checkMatchingUser,
-} from '../../../utils/helperFunctions.util';
-import CommentsByArticleId from '../../CommentsByArticleId/CommentsByArticleId';
-import AddCommentForm from '../../CommentsByArticleId/AddCommentForm/AddCommentForm';
-import Loader from '../../Loader/Loader';
-import { AddCommentBtn, LikeBtn } from '../../Buttons/Buttons';
+} from '../../utils/helperFunctions.util';
+import CommentsByArticleId from '../CommentsByArticleId/CommentsByArticleId';
+import AddCommentForm from '../CommentsByArticleId/AddCommentForm';
+import Loader from '../Loader/Loader';
+import { AddCommentBtn, LikeBtn } from '../Buttons/Buttons';
 
 const ArticleById = () => {
   const { user } = useContext(UserContext);

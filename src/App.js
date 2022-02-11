@@ -2,11 +2,11 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { UserContext } from './contexts/User';
 import { useState } from 'react';
 import Articles from './components/Articles/Articles';
-import Topics from './components/Topics/Topics';
-import ArticleById from './components/Articles/ArticleById/ArticleById';
+import Topics from './components/Nav/Topics';
+import ArticleById from './components/Articles/ArticleById';
 import './App.css';
-import Login from './components/TopPage/Login/Login';
-import SliderImg from './components/Slider/Slider';
+import Login from './components/TopPage/Login';
+import SliderImg from './components/Header/Slider';
 
 const App = () => {
   const [user, setUser] = useState({});

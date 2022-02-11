@@ -1,9 +1,9 @@
-import styles from './Login.module.css';
+import styles from '../../css/Login.module.css';
 import { useContext, useEffect, useState } from 'react';
-import { UserContext } from '../../../contexts/User';
-import { getUser } from '../../../utils/api';
-import User from '../User/User';
-import { AvatarIcon, CloseBtn } from '../../Buttons/Buttons';
+import { UserContext } from '../../contexts/User';
+import { getUser } from '../../utils/api';
+import User from './User';
+import { AvatarIcon, CloseBtn } from '../Buttons/Buttons';
 
 const Login = () => {
   const { setUser } = useContext(UserContext);

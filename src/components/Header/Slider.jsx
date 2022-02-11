@@ -1,7 +1,7 @@
+import styles from '../../css/Slider.module.css';
+import 'react-slideshow-image/dist/styles.css';
 import { Fade } from 'react-slideshow-image';
 import { sliderImages } from '../../images/sliderImages';
-import 'react-slideshow-image/dist/styles.css';
-import styles from './Slider.module.css';
 
 const SliderImg = () => {
   const sliderProperties = {
