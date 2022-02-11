@@ -1,4 +1,4 @@
-export const fadeImages = [
+export const sliderImages = [
   {
     url: 'https://images.unsplash.com/photo-1616124619460-ff4ed8f4683c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=698&q=80',
     caption: 'Premier League',

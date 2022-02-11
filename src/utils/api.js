@@ -31,11 +31,13 @@ export const getCommentsByArticleId = (article_id, sort_by, order) => {
 };
 
 export const postComment = (article_id, username, body) => {
-  return baseApi.post(`/articles/${article_id}/comments`, {
-    article_id,
-    username,
-    body,
-  });
+  return baseApi
+    .post(`/articles/${article_id}/comments`, {
+      article_id,
+      username,
+      body,
+    })
+    .then(({ data }) => data.comment);
 };
 
 // export const patchArticleById = (article_id, data) => {

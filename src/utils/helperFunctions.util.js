@@ -1,4 +1,8 @@
-const formatDate = (created_at) => {
+export const checkMatchingUser = (user, eachUser) => {
+  return user && eachUser && user.username === eachUser.username;
+};
+
+export const formatDate = (created_at) => {
   const options = {
     year: 'numeric',
     month: 'short',
@@ -11,5 +15,3 @@ const formatDate = (created_at) => {
 
   return date;
 };
-
-export default formatDate;
