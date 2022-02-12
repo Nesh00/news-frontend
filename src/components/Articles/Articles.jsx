@@ -2,8 +2,8 @@ import styles from '../../css/Articles&Comments.module.css';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { getArticles } from '../../utils/api';
-import EachArticle from './EachArticle';
 import Loader from '../Loader/Loader';
+import Article from './Article';
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
@@ -16,6 +16,7 @@ const Articles = () => {
   const sortByHandler = (event) => {
     setSortBy(event.target.value);
   };
+
   const orderHandler = (event) => {
     setOrder(event.target.value);
   };
@@ -46,7 +47,15 @@ const Articles = () => {
           <Loader />
         ) : (
           articles.map((article) => {
-            return <EachArticle key={article.article_id} article={article} />;
+            return (
+              <li
+                key={article.article_id}
+                className={styles.article__item}
+                title='View Article'
+              >
+                <Article article={article} />
+              </li>
+            );
           })
         )}
       </ul>

@@ -31,7 +31,7 @@ const Login = () => {
     getUser(username).then((usersData) => {
       setUser(usersData);
     });
-  }, [username]);
+  }, [username, setUser]);
 
   return (
     <User

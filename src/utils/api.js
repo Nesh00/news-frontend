@@ -24,6 +24,10 @@ export const getArticleById = (article_id) => {
     .then(({ data }) => data.article);
 };
 
+export const updateArticleVote = (article_id, newVote) => {
+  return baseApi.patch(`/articles/${article_id}`, newVote);
+};
+
 export const getCommentsByArticleId = (article_id, sort_by, order) => {
   return baseApi
     .get(`/articles/${article_id}/comments`, { params: { sort_by, order } })
