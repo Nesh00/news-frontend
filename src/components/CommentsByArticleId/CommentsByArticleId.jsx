@@ -1,7 +1,7 @@
 import styles from '../../css/Articles&Comments.module.css';
 import { useEffect, useState } from 'react';
 import { getCommentsByArticleId } from '../../utils/api';
-import EachComment from './EachComment';
+import Comment from './Comment';
 import Loader from '../Loader/Loader';
 
 const CommentsByArticleId = ({ article_id, comments, setComments }) => {
@@ -44,7 +44,7 @@ const CommentsByArticleId = ({ article_id, comments, setComments }) => {
           <ul className={styles.comments}>
             {comments.map((comment, commentIndex) => {
               return (
-                <EachComment
+                <Comment
                   key={commentIndex}
                   commentKey={commentIndex}
                   comment={comment}

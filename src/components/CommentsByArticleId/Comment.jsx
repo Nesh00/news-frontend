@@ -6,11 +6,12 @@ import {
   formatDate,
   checkMatchingUser,
 } from '../../utils/helperFunctions.util';
-import { DeleteBtn, EditBtn, LikeBtn } from '../Buttons/Buttons';
+import { DeleteBtn, EditBtn, VoteBtn } from '../Buttons/Buttons';
 
-const EachComment = ({ comment, comments, setComments, commentKey }) => {
+const Comment = ({ comment, comments, setComments, commentKey }) => {
   const { user } = useContext(UserContext);
   const [eachUser, setEachUser] = useState();
+  const [newVote, setNewVote] = useState(0);
 
   const deleteCommentHandler = () => {
     deleteComment(comment.comment_id);
@@ -41,8 +42,25 @@ const EachComment = ({ comment, comments, setComments, commentKey }) => {
       </div>
       <p className={styles.comment__body}>{comment.body}</p>
       <div className={styles.votes__container}>
+        {checkMatchingUser(user, eachUser) || !user || (
+          <VoteBtn
+            size={'2x'}
+            component={comment}
+            newVote={newVote}
+            setNewVote={setNewVote}
+            voteValue={1}
+          />
+        )}
         <p className={styles.votes}>{comment.votes} votes</p>
-        {checkMatchingUser(user, eachUser) || !user || <LikeBtn size={'xl'} />}
+        {checkMatchingUser(user, eachUser) || !user || (
+          <VoteBtn
+            size={'2x'}
+            component={comment}
+            newVote={newVote}
+            setNewVote={setNewVote}
+            voteValue={-1}
+          />
+        )}
         {checkMatchingUser(user, eachUser) && (
           <DeleteBtn
             size={'xl'}
@@ -55,4 +73,4 @@ const EachComment = ({ comment, comments, setComments, commentKey }) => {
   );
 };
 
-export default EachComment;
+export default Comment;

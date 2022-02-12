@@ -7,7 +7,7 @@ import {
   formatDate,
 } from '../../utils/helperFunctions.util';
 import { UserContext } from '../../contexts/User';
-import { AddCommentBtn, VoteUpBtn } from '../Buttons/Buttons';
+import { AddCommentBtn, VoteBtn } from '../Buttons/Buttons';
 
 const Article = ({ article, articleById, setIsOpen }) => {
   const { user } = useContext(UserContext);
@@ -48,13 +48,23 @@ const Article = ({ article, articleById, setIsOpen }) => {
         </Link>
         {articleById && <p className={styles.article__body}>{article.body}</p>}
         <div className={styles.votes__container}>
-          <p className={styles.votes}>{article.votes} votes</p>
           {checkMatchingUser(user, eachUser) || !user || (
-            <VoteUpBtn
+            <VoteBtn
               size={'2x'}
               component={article}
               newVote={newVote}
               setNewVote={setNewVote}
+              voteValue={1}
+            />
+          )}
+          <p className={styles.votes}>{article.votes} votes</p>
+          {checkMatchingUser(user, eachUser) || !user || (
+            <VoteBtn
+              size={'2x'}
+              component={article}
+              newVote={newVote}
+              setNewVote={setNewVote}
+              voteValue={-1}
             />
           )}
           {user && articleById ? (

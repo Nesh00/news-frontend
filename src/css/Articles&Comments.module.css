@@ -99,7 +99,7 @@
 .votes__container {
   margin: 2rem 0 0 0;
   display: flex;
-  align-items: end;
+  align-items: start;
 }
 
 .comment_count,
@@ -108,15 +108,24 @@
   color: #837f7f;
 }
 
+.votes {
+  margin: 0 0.7rem;
+  align-self: flex-end;
+}
+
 .comment_count {
   margin-left: auto;
 }
 
 .vote {
-  margin-left: 1rem;
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+.vote__down {
+  margin-bottom: -0.7rem;
+  align-self: flex-end;
 }
 
 .comments {

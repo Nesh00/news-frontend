@@ -48,6 +48,10 @@ export const deleteComment = (comment_id) => {
   return baseApi.delete(`comments/${comment_id}`);
 };
 
+export const updateCommentVote = (comment_id, newVote) => {
+  return baseApi.patch(`/comments/${comment_id}`, newVote);
+};
+
 // export const patchArticleById = (article_id, data) => {
 //   return baseApi
 //     .patch(`/articles/${article_id}`, data)

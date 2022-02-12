@@ -2,21 +2,52 @@ import styles from '../../css/Articles&Comments.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faThumbsUp,
+  faThumbsDown,
   faCommentDots,
   faEllipsis,
   faTrashCan,
   faClose,
   faUserCircle,
 } from '@fortawesome/free-solid-svg-icons';
+import { updateArticleVote, updateCommentVote } from '../../utils/api';
+import { useEffect, useState } from 'react';
 
-export const LikeBtn = ({ size }) => {
+export const VoteBtn = ({
+  size,
+  component,
+  newVote,
+  setNewVote,
+  voteValue,
+}) => {
+  const [componentId, setComponentId] = useState('');
+
+  const voteHandler = () => {
+    component.votes = component.votes + voteValue;
+    setNewVote((currVote) => currVote + voteValue);
+    component.hasOwnProperty('article_id')
+      ? setComponentId('article_id')
+      : setComponentId('comment_id');
+  };
+
+  useEffect(() => {
+    if (componentId === 'article_id' && newVote !== 0) {
+      updateArticleVote(component[componentId], { inc_votes: newVote });
+    } else if (componentId === 'comment_id' && newVote !== 0) {
+      updateCommentVote(component[componentId], { inc_votes: newVote });
+    }
+    setNewVote(0);
+  }, [newVote]);
+
   return (
-    <button className={styles.vote}>
+    <button
+      className={`${styles.vote} ${voteValue === -1 && styles.vote__down}`}
+    >
       <FontAwesomeIcon
-        icon={faThumbsUp}
+        icon={voteValue === 1 ? faThumbsUp : faThumbsDown}
         size={size}
         color='#ff9933'
         title='Like'
+        onClick={voteHandler}
       />
     </button>
   );
