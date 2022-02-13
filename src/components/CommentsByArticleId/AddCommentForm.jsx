@@ -4,6 +4,7 @@ import { UserContext } from '../../contexts/User';
 import { postComment } from '../../utils/api';
 import { formatDate } from '../../utils/helperFunctions.util';
 import { CloseBtn } from '../Buttons/Buttons';
+import Form from '../Form';
 
 const AddCommentForm = ({ isOpen, setIsOpen, article_id, setComments }) => {
   const [input, setInput] = useState('');
@@ -40,25 +41,21 @@ const AddCommentForm = ({ isOpen, setIsOpen, article_id, setComments }) => {
   }, [addComment]);
 
   return (
-    <>
-      {isOpen && (
-        <div className={styles.overlay}>
-          <form className={styles.comment__form} onSubmit={addCommentHandler}>
-            <CloseBtn size={'2x'} closeEvent={closeCommentHandler} />
-            <label className={styles.comment__label}>
-              Add Comment
-              <textarea
-                value={input}
-                required
-                className={styles.comment__area}
-                onChange={getInput}
-              ></textarea>
-            </label>
-            <button className={styles.comment__btn}>add</button>
-          </form>
-        </div>
-      )}
-    </>
+    isOpen && (
+      <Form submitHandler={addCommentHandler}>
+        <CloseBtn size={'2x'} closeEvent={closeCommentHandler} />
+        <label className={styles.comment__label}>
+          Add Comment
+          <textarea
+            value={input}
+            required
+            className={styles.comment__area}
+            onChange={getInput}
+          ></textarea>
+        </label>
+        <button className={styles.comment__btn}>add</button>
+      </Form>
+    )
   );
 };
 

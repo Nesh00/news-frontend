@@ -4,6 +4,7 @@ import { UserContext } from '../../contexts/User';
 import { getUser } from '../../utils/api';
 import User from './User';
 import { AvatarIcon, CloseBtn } from '../Buttons/Buttons';
+import Form from '../Form';
 
 const Login = () => {
   const { setUser } = useContext(UserContext);
@@ -40,24 +41,21 @@ const Login = () => {
       logout={logout}
       setLogout={setLogout}
     >
-      <div className={styles.overlay}>
-        <form className={styles.login__form} onSubmit={submitUser}>
-          <CloseBtn size={'2x'} closeEvent={closeLoginHandler} />
-          <AvatarIcon size={'5x'} />
-          <label className={styles.login__label}>
-            User
-            <input
-              type='text'
-              value={input}
-              placeholder='Enter Username'
-              required
-              className={styles.login__input}
-              onChange={getInput}
-            />
-          </label>
-          <button className={styles.login__btn}>login</button>
-        </form>
-      </div>
+      <Form submitHandler={submitUser}>
+        <CloseBtn size={'2x'} closeEvent={closeLoginHandler} />
+        <AvatarIcon size={'5x'} />
+        <label className={styles.login__label}>
+          User
+          <input
+            type='text'
+            value={input}
+            placeholder='Enter Username'
+            required
+            className={styles.login__input}
+            onChange={getInput}
+          />
+        </label>
+      </Form>
     </User>
   );
 };

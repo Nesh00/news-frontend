@@ -149,6 +149,7 @@
 }
 
 .comment__body {
+  margin-left: 0.7rem;
   font-size: 1.6rem;
 }
 
@@ -170,37 +171,11 @@
   align-self: flex-end;
 }
 
-.overlay {
-  height: 110vh;
-  width: 100%;
-  position: fixed;
-  top: -2rem;
-  right: -0.1rem;
-  z-index: 3;
-  background: rgba(0, 0, 0, 0.205);
-  overflow: hidden;
-}
-
 .close__btn {
   margin-left: auto;
   cursor: pointer;
   border: none;
   background: transparent;
-}
-
-.comment__form {
-  width: 90%;
-  padding: 2rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #fff;
-  border-radius: 5px;
-  z-index: 5;
 }
 
 .comment__label {
@@ -299,6 +274,10 @@
 
   .comment__area {
     font-size: 2.3rem;
+  }
+
+  .comment__body {
+    font-size: 2rem;
   }
 
   .comment__btn {
