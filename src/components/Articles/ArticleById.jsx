@@ -6,22 +6,30 @@ import CommentsByArticleId from '../CommentsByArticleId/CommentsByArticleId';
 import AddCommentForm from '../CommentsByArticleId/AddCommentForm';
 import Loader from '../Loader/Loader';
 import Article from './Article';
+import Error from '../Errors/Error';
 
 const ArticleById = () => {
   const { article_id } = useParams();
   const [article, setArticle] = useState();
   const [comments, setComments] = useState();
+  const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    getArticleById(article_id).then((articleData) => {
-      setArticle(articleData);
-      setIsLoading(false);
-    });
+    getArticleById(article_id)
+      .then((articleData) => {
+        setArticle(articleData);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        if (err.response) setError(err.response);
+      });
   }, [article_id]);
 
-  return isLoading ? (
+  return error ? (
+    <Error error={error} />
+  ) : isLoading ? (
     <Loader />
   ) : (
     <>

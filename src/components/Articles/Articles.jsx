@@ -9,9 +9,9 @@ const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [searchParams] = useSearchParams();
   const [topic] = searchParams.values();
-  const [isLoading, setIsLoading] = useState(true);
   const [sortBy, setSortBy] = useState('created_at');
   const [order, setOrder] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
   const sortByHandler = (event) => {
     setSortBy(event.target.value);

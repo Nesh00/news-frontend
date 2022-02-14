@@ -24,38 +24,34 @@ const CommentsByArticleId = ({ article_id, comments, setComments }) => {
     });
   }, [article_id, sortBy, order, setComments]);
 
-  return (
+  return isLoading ? (
+    <Loader />
+  ) : (
     <>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <>
-          <div className={styles.select__container}>
-            <select className={styles.select} onChange={sortByHandler}>
-              <option>created_at</option>
-              <option>author</option>
-              <option>votes</option>
-            </select>
-            <select className={styles.select} onChange={orderHandler}>
-              <option value={'DESC'}>latest</option>
-              <option value={'ASC'}>oldest</option>
-            </select>
-          </div>
-          <ul className={styles.comments}>
-            {comments.map((comment, commentIndex) => {
-              return (
-                <Comment
-                  key={commentIndex}
-                  commentKey={commentIndex}
-                  comment={comment}
-                  comments={comments}
-                  setComments={setComments}
-                />
-              );
-            })}
-          </ul>
-        </>
-      )}
+      <div className={styles.select__container}>
+        <select className={styles.select} onChange={sortByHandler}>
+          <option value={'created_at'}>created at</option>
+          <option>author</option>
+          <option>votes</option>
+        </select>
+        <select className={styles.select} onChange={orderHandler}>
+          <option value={'DESC'}>latest</option>
+          <option value={'ASC'}>oldest</option>
+        </select>
+      </div>
+      <ul className={styles.comments}>
+        {comments.map((comment, commentIndex) => {
+          return (
+            <Comment
+              key={commentIndex}
+              commentKey={commentIndex}
+              comment={comment}
+              comments={comments}
+              setComments={setComments}
+            />
+          );
+        })}
+      </ul>
     </>
   );
 };
