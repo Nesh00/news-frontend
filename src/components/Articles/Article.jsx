@@ -13,7 +13,7 @@ const Article = ({ article, articleById, setIsOpen }) => {
   const { user } = useContext(UserContext);
   const [eachUser, setEachUser] = useState();
   const [isLoaded, setIsLoaded] = useState(false);
-  const [newVote, setNewVote] = useState(0);
+  const [newVote, setNewVote] = useState(1);
 
   useEffect(() => {
     getUser(article.author).then((userData) => {
@@ -48,15 +48,6 @@ const Article = ({ article, articleById, setIsOpen }) => {
         </Link>
         {articleById && <p className={styles.article__body}>{article.body}</p>}
         <div className={styles.votes__container}>
-          {checkMatchingUser(user, eachUser) || !user || (
-            <VoteBtn
-              size={'2x'}
-              component={article}
-              newVote={newVote}
-              setNewVote={setNewVote}
-              voteValue={1}
-            />
-          )}
           <p className={styles.votes}>{article.votes} votes</p>
           {checkMatchingUser(user, eachUser) || !user || (
             <VoteBtn
@@ -64,9 +55,9 @@ const Article = ({ article, articleById, setIsOpen }) => {
               component={article}
               newVote={newVote}
               setNewVote={setNewVote}
-              voteValue={-1}
             />
           )}
+
           {user && articleById ? (
             <AddCommentBtn setIsOpen={setIsOpen} size={'2x'} />
           ) : (

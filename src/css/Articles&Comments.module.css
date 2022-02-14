@@ -109,7 +109,7 @@
 }
 
 .votes {
-  margin: 0 0.7rem;
+  margin-right: 0.7rem;
   align-self: flex-end;
 }
 
@@ -121,11 +121,6 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
-}
-
-.vote__down {
-  margin-bottom: -0.7rem;
-  align-self: flex-end;
 }
 
 .comments {
@@ -149,7 +144,6 @@
 }
 
 .comment__body {
-  margin-left: 0.7rem;
   font-size: 1.6rem;
 }
 

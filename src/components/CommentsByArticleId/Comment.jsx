@@ -11,7 +11,7 @@ import { DeleteBtn, EditBtn, VoteBtn } from '../Buttons/Buttons';
 const Comment = ({ comment, comments, setComments, commentKey }) => {
   const { user } = useContext(UserContext);
   const [eachUser, setEachUser] = useState();
-  const [newVote, setNewVote] = useState(0);
+  const [newVote, setNewVote] = useState(1);
 
   const deleteCommentHandler = () => {
     deleteComment(comment.comment_id);
@@ -42,15 +42,6 @@ const Comment = ({ comment, comments, setComments, commentKey }) => {
       </div>
       <p className={styles.comment__body}>{comment.body}</p>
       <div className={styles.votes__container}>
-        {checkMatchingUser(user, eachUser) || !user || (
-          <VoteBtn
-            size={'2x'}
-            component={comment}
-            newVote={newVote}
-            setNewVote={setNewVote}
-            voteValue={1}
-          />
-        )}
         <p className={styles.votes}>{comment.votes} votes</p>
         {checkMatchingUser(user, eachUser) || !user || (
           <VoteBtn
@@ -58,7 +49,6 @@ const Comment = ({ comment, comments, setComments, commentKey }) => {
             component={comment}
             newVote={newVote}
             setNewVote={setNewVote}
-            voteValue={-1}
           />
         )}
         {checkMatchingUser(user, eachUser) && (

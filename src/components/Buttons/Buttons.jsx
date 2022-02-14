@@ -2,7 +2,6 @@ import styles from '../../css/Articles&Comments.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faThumbsUp,
-  faThumbsDown,
   faCommentDots,
   faEllipsis,
   faTrashCan,
@@ -10,42 +9,35 @@ import {
   faUserCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import { updateArticleVote, updateCommentVote } from '../../utils/api';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-export const VoteBtn = ({
-  size,
-  component,
-  newVote,
-  setNewVote,
-  voteValue,
-}) => {
+export const VoteBtn = ({ size, component, newVote, setNewVote }) => {
   const [componentId, setComponentId] = useState('');
+  const ref = useRef(newVote);
+
+  useEffect(() => {
+    if (componentId === 'article_id') {
+      updateArticleVote(component[componentId], { inc_votes: ref.current });
+    } else if (componentId === 'comment_id') {
+      updateCommentVote(component[componentId], { inc_votes: ref.current });
+    }
+    ref.current = newVote;
+  }, [newVote]);
 
   const voteHandler = () => {
-    component.votes = component.votes + voteValue;
-    setNewVote((currVote) => currVote + voteValue);
+    setNewVote((currVote) => (currVote === -1 ? 1 : -1));
+    component.votes = component.votes + ref.current;
     component.hasOwnProperty('article_id')
       ? setComponentId('article_id')
       : setComponentId('comment_id');
   };
 
-  useEffect(() => {
-    if (componentId === 'article_id' && newVote !== 0) {
-      updateArticleVote(component[componentId], { inc_votes: newVote });
-    } else if (componentId === 'comment_id' && newVote !== 0) {
-      updateCommentVote(component[componentId], { inc_votes: newVote });
-    }
-    setNewVote(0);
-  }, [newVote]);
-
   return (
-    <button
-      className={`${styles.vote} ${voteValue === -1 && styles.vote__down}`}
-    >
+    <button className={styles.vote}>
       <FontAwesomeIcon
-        icon={voteValue === 1 ? faThumbsUp : faThumbsDown}
+        icon={faThumbsUp}
         size={size}
-        color='#ff9933'
+        color={newVote === -1 ? '#ff9933' : ''}
         title='Like'
         onClick={voteHandler}
       />
