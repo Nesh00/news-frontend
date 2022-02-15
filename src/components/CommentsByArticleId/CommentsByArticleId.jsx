@@ -27,7 +27,7 @@ const CommentsByArticleId = ({ article_id, comments, setComments }) => {
   return isLoading ? (
     <Loader />
   ) : (
-    <>
+    <section>
       <div className={styles.select__container}>
         <select className={styles.select} onChange={sortByHandler}>
           <option value={'created_at'}>created at</option>
@@ -52,7 +52,7 @@ const CommentsByArticleId = ({ article_id, comments, setComments }) => {
           );
         })}
       </ul>
-    </>
+    </section>
   );
 };
 

@@ -38,8 +38,20 @@ const Articles = () => {
           <option>votes</option>
         </select>
         <select className={styles.select} onChange={orderHandler}>
-          <option value={'DESC'}>latest</option>
-          <option value={'ASC'}>oldest</option>
+          <option value={'DESC'}>
+            {sortBy === 'author'
+              ? 'Z - A'
+              : sortBy === 'votes'
+              ? 'most'
+              : 'latest'}
+          </option>
+          <option value={'ASC'}>
+            {sortBy === 'author'
+              ? 'A - Z'
+              : sortBy === 'votes'
+              ? 'least'
+              : 'oldest'}
+          </option>
         </select>
       </div>
       <ul className={styles.articles__list}>

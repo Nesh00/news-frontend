@@ -33,9 +33,9 @@ const ArticleById = () => {
     <Loader />
   ) : (
     <>
-      <div className={styles.article__item}>
+      <main className={styles.article__item}>
         <Article article={article} articleById={true} setIsOpen={setIsOpen} />
-      </div>
+      </main>
       <AddCommentForm
         isOpen={isOpen}
         setIsOpen={setIsOpen}
