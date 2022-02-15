@@ -15,6 +15,14 @@ export const VoteBtn = ({ size, component, newVote, setNewVote }) => {
   const [componentId, setComponentId] = useState('');
   const ref = useRef(newVote);
 
+  const voteHandler = () => {
+    setNewVote((currVote) => (currVote === -1 ? 1 : -1));
+    component.votes = component.votes + ref.current;
+    component.hasOwnProperty('article_id')
+      ? setComponentId('article_id')
+      : setComponentId('comment_id');
+  };
+
   useEffect(() => {
     if (componentId === 'article_id') {
       updateArticleVote(component[componentId], { inc_votes: ref.current });
@@ -23,14 +31,6 @@ export const VoteBtn = ({ size, component, newVote, setNewVote }) => {
     }
     ref.current = newVote;
   }, [newVote]);
-
-  const voteHandler = () => {
-    setNewVote((currVote) => (currVote === -1 ? 1 : -1));
-    component.votes = component.votes + ref.current;
-    component.hasOwnProperty('article_id')
-      ? setComponentId('article_id')
-      : setComponentId('comment_id');
-  };
 
   return (
     <button className={styles.vote}>

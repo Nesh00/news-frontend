@@ -57,7 +57,6 @@ const Article = ({ article, articleById, setIsOpen }) => {
               setNewVote={setNewVote}
             />
           )}
-
           {user && articleById ? (
             <AddCommentBtn setIsOpen={setIsOpen} size={'2x'} />
           ) : (
