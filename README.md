@@ -7,17 +7,17 @@ _A mobile-first, responsive Front-End app build with ReactJS and CSS-modules whi
 <img src="screenshots/Screenshot 2.png" alt="screenshot" width="900" height="700"/>
 <img src="screenshots/Screenshot.png" alt="screenshot" width="900" height="700"/>
 
-## View Back-End API
-
 ---
+
+## View Back-End API
 
 **Live URL**: [https://nenad-nc-news-api.herokuapp.com/api](https://nenad-nc-news-api.herokuapp.com/api)
 
 **GitHub**: [https://github.com/Nesh00/news-api](https://github.com/Nesh00/news-api)
 
-## Login as User to interact with the app
-
 ---
+
+## Login as User to interact with the app
 
 To login as a user here's a list of usernames that you can use:
 
@@ -25,9 +25,9 @@ To login as a user here's a list of usernames that you can use:
 tickle122, grumpy19, jessjelly, cooljmessy, weegembump, happyamy2016..
 ```
 
-## Download
-
 ---
+
+## Download
 
 You can find the repository on my [**GitHub**](https://github.com/Nesh00/news-frontend) account and clone it down or just download the ZIP file.
 
@@ -36,15 +36,15 @@ git clone https://github.com/Nesh00/news-frontend
 
 ```
 
-## Basic requirements
-
 ---
+
+## Basic requirements
 
 If you want to run this app on your local machine, make sure you have version [**NodeJS v16.11.0**](https://nodejs.org/en/) installed.
 
-## Installation
-
 ---
+
+## Installation
 
 Once you have the repository on your computer, install the npm packages.
 
@@ -52,17 +52,17 @@ Once you have the repository on your computer, install the npm packages.
 npm install
 ```
 
-## Run app locally
-
 ---
+
+## Run app locally
 
 ```
 npm start
 ```
 
-## Future development
-
 ---
+
+## Future development
 
 My future goal for this app is:
 
@@ -70,3 +70,5 @@ My future goal for this app is:
 - Add pagination on both articles and comments
 - Edit your own comments
 - As user you can create, edit and delete your own articles
+
+---
