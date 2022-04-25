@@ -7,6 +7,7 @@
   z-index: 3;
   background: rgba(0, 0, 0, 0.205);
   overflow: hidden;
+  animation: slideDown 0.5s ease-out;
 }
 
 .form {
@@ -22,6 +23,18 @@
   background: #fff;
   border-radius: 5px;
   z-index: 5;
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media screen and (min-width: 36.5em) {

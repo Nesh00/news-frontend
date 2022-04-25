@@ -30,7 +30,7 @@
 
 .logout {
   position: absolute;
-  right: 1.2rem;
+  right: 0.2rem;
   bottom: -7rem;
   font-size: 2rem;
   cursor: pointer;
@@ -39,17 +39,30 @@
   border-radius: 5px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   z-index: 3;
+  animation: slideDown 0.3s ease-out;
 }
 
 .logout::before {
   content: '';
   display: block;
   position: absolute;
-  top: -1.5rem;
-  right: 5%;
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
-  border-bottom: 20px solid rgb(255, 255, 255);
+  top: -1.6rem;
+  right: 6%;
+  border-left: 1.2rem solid transparent;
+  border-right: 1.2rem solid transparent;
+  border-bottom: 2rem solid rgb(255, 255, 255);
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media screen and (min-width: 36.5em) {

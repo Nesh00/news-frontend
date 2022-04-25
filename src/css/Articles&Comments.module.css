@@ -187,6 +187,7 @@
   font-size: 1.7rem;
   text-indent: 0.5rem;
   outline: none;
+  resize: none;
 }
 
 .comment__btn {
