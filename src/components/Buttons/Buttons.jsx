@@ -59,7 +59,7 @@ export const AddCommentBtn = ({ size, setIsOpen }) => {
   );
 };
 
-export const EditBtn = ({ size, item }) => {
+export const EditBtn = ({ size, item, openEditFormHandler }) => {
   return (
     <button className={styles.edit__comment}>
       <FontAwesomeIcon
@@ -67,6 +67,7 @@ export const EditBtn = ({ size, item }) => {
         size={size}
         color='#ada9a9'
         title={`Edit ${item}`}
+        onClick={openEditFormHandler}
       />
     </button>
   );
