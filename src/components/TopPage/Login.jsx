@@ -1,6 +1,7 @@
 import styles from '../../css/Login.module.css';
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../contexts/User';
+import { RegisterContext } from '../../contexts/RegisterContext';
 import { getUser } from '../../utils/api';
 import User from './User';
 import { AvatarIcon, CloseBtn } from '../Buttons/Buttons';
@@ -8,6 +9,7 @@ import Form from '../Form';
 
 const Login = () => {
   const { setUser } = useContext(UserContext);
+  const { setOpenRegister } = useContext(RegisterContext);
   const [input, setInput] = useState('');
   const [username, setUsername] = useState('');
   const [isOpen, setIsOpen] = useState(false);
@@ -26,6 +28,11 @@ const Login = () => {
 
   const closeLoginHandler = () => {
     setIsOpen((currOpen) => !currOpen);
+  };
+
+  const showRegisterHandler = () => {
+    setIsOpen((currOpen) => !currOpen);
+    setOpenRegister(true);
   };
 
   useEffect(() => {
@@ -55,6 +62,16 @@ const Login = () => {
             onChange={getInput}
           />
         </label>
+        <p className={styles.register}>
+          Don't have an account?{' '}
+          <button
+            type='button'
+            className={styles.register__btn}
+            onClick={showRegisterHandler}
+          >
+            Register
+          </button>
+        </p>
       </Form>
     </User>
   );

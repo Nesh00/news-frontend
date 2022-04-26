@@ -22,6 +22,22 @@
   cursor: pointer;
 }
 
+.register {
+  font-size: 1.6rem;
+}
+
+.register__btn {
+  background: none;
+  border: none;
+  color: #0000d4;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.register__btn:hover {
+  color: red;
+}
+
 @media screen and (min-width: 36.5em) {
   .login__form {
     width: 70%;
@@ -29,6 +45,13 @@
 
   .login__label {
     font-size: 2.2rem;
+  }
+
+  .register {
+    font-size: 1.8rem;
+  }
+  .register__btn {
+    font-size: 1.8rem;
   }
 }
 
@@ -47,6 +70,13 @@
 
   .login__btn {
     font-size: 2rem;
+  }
+
+  .register {
+    font-size: 2.2rem;
+  }
+  .register__btn {
+    font-size: 2.2rem;
   }
 }
 

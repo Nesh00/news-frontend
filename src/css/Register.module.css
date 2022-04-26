@@ -1,0 +1,60 @@
+.register__header {
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+}
+
+.register__input {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  font-size: 1.7rem;
+  outline: none;
+}
+
+.register__btn {
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 1.7rem;
+  border: none;
+  border-radius: 5px;
+  background: #2020e8;
+  color: #fff;
+  cursor: pointer;
+}
+
+.register__btn:hover {
+  background: #4343da;
+}
+
+@media screen and (min-width: 36.5em) {
+  .register__header {
+    margin-bottom: 2.5rem;
+    font-size: 2.5rem;
+  }
+
+  .register__input {
+    font-size: 1.8rem;
+  }
+
+  .register__btn {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (min-width: 56em) {
+  .register__header {
+    margin-bottom: 3.5rem;
+    font-size: 3rem;
+  }
+
+  .register__input {
+    font-size: 2.2rem;
+  }
+
+  .register__btn {
+    width: auto;
+    margin-top: 2rem;
+    padding: 1.5rem 4rem;
+    font-size: 2.2rem;
+  }
+}
