@@ -1,6 +1,6 @@
 import styles from '../../css/Articles&Comments.module.css';
 import { useContext, useEffect, useState } from 'react';
-import { UserContext } from '../../contexts/User';
+import { UserContext } from '../../contexts/UserContext';
 import { postComment } from '../../utils/api';
 import { formatDate } from '../../utils/helperFunctions.util';
 import { CloseBtn } from '../Buttons/Buttons';

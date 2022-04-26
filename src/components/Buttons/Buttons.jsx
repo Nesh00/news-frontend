@@ -1,4 +1,5 @@
 import styles from '../../css/Articles&Comments.module.css';
+import { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faThumbsUp,
@@ -9,7 +10,6 @@ import {
   faUserCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import { updateArticleVote, updateCommentVote } from '../../utils/api';
-import { useEffect, useRef, useState } from 'react';
 
 export const VoteBtn = ({ size, component, newVote, setNewVote }) => {
   const [componentId, setComponentId] = useState('');

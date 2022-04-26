@@ -1,6 +1,6 @@
 import styles from '../../css/User.module.css';
 import { useContext } from 'react';
-import { UserContext } from '../../contexts/User';
+import { UserContext } from '../../contexts/UserContext';
 import Logo from './Logo';
 import { AvatarIcon } from '../Buttons/Buttons';
 

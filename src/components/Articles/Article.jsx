@@ -6,7 +6,7 @@ import {
   checkMatchingUser,
   formatDate,
 } from '../../utils/helperFunctions.util';
-import { UserContext } from '../../contexts/User';
+import { UserContext } from '../../contexts/UserContext';
 import { AddCommentBtn, VoteBtn } from '../Buttons/Buttons';
 
 const Article = ({ article, articleById, setIsOpen }) => {

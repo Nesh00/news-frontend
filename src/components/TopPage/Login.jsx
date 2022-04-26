@@ -1,6 +1,6 @@
 import styles from '../../css/Login.module.css';
 import { useContext, useEffect, useState } from 'react';
-import { UserContext } from '../../contexts/User';
+import { UserContext } from '../../contexts/UserContext';
 import { RegisterContext } from '../../contexts/RegisterContext';
 import { getUser } from '../../utils/api';
 import User from './User';
