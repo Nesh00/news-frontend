@@ -7,9 +7,10 @@ import Form from '../Form';
 
 const Register = () => {
   const { openRegister, setOpenRegister } = useContext(RegisterContext);
-  const [username, setUsername] = useState();
-  const [name, setName] = useState();
-  const [avatarUrl, setAvatarUrl] = useState();
+  const [username, setUsername] = useState('');
+  const [name, setName] = useState('');
+  const [avatarUrl, setAvatarUrl] = useState('');
+  const [submitForm, setSubmitForm] = useState(null);
 
   const getName = (event) => {
     setName(event.target.value);
@@ -21,8 +22,11 @@ const Register = () => {
     setAvatarUrl(event.target.value);
   };
 
-  const createUserHandler = (e) => {
-    e.preventDefault();
+  const createUserHandler = (event) => {
+    event.preventDefault();
+    setSubmitForm(() => {
+      return { username, name, avatarUrl };
+    });
     setName('');
     setUsername('');
     setAvatarUrl('');
@@ -33,18 +37,23 @@ const Register = () => {
   };
 
   useEffect(() => {
-    username &&
-      name &&
-      avatarUrl &&
-      createUser(username, name, avatarUrl).then(({ user }) => {
+    submitForm &&
+      createUser(
+        submitForm.username,
+        submitForm.name,
+        submitForm.avatarUrl
+      ).then(() => {
         setOpenRegister(false);
-        console.log(user);
       });
-  }, []);
+
+    return () => {
+      setSubmitForm(null);
+    };
+  }, [submitForm]);
 
   return (
     openRegister && (
-      <Form onSubmit={createUserHandler}>
+      <Form submitHandler={createUserHandler}>
         <CloseBtn size={'2x'} closeEvent={closeRegisterHandler} />
         <p className={styles.register__header}>Register</p>
         <label>

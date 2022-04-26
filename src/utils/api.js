@@ -9,7 +9,7 @@ export const getUser = (username = '') => {
 };
 
 export const createUser = (username, name, avatar_url) => {
-  return baseApi().post(`/users`, { username, name, avatar_url });
+  return baseApi.post(`/users`, { username, name, avatar_url });
 };
 
 export const getTopics = () => {
