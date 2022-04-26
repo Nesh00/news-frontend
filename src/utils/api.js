@@ -8,6 +8,10 @@ export const getUser = (username = '') => {
   return baseApi.get(`/users/${username}`).then(({ data }) => data.user);
 };
 
+export const createUser = (username, name, avatar_url) => {
+  return baseApi().post(`/users`, { username, name, avatar_url });
+};
+
 export const getTopics = () => {
   return baseApi.get(`/topics`).then(({ data }) => data.topics);
 };
