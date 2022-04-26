@@ -56,6 +56,10 @@ export const updateCommentVote = (comment_id, newVote) => {
   return baseApi.patch(`/comments/${comment_id}`, newVote);
 };
 
+export const editComment = (comment_id, editedComment) => {
+  return baseApi.patch(`/comments/${comment_id}`, editedComment);
+};
+
 // export const patchArticleById = (article_id, data) => {
 //   return baseApi
 //     .patch(`/articles/${article_id}`, data)
