@@ -5,13 +5,13 @@ import SliderImg from './components/Header/Slider';
 import Topics from './components/Nav/Topics';
 import Articles from './components/Articles/Articles';
 import ArticleById from './components/Articles/ArticleById';
-import Register from './components/TopPage/Register';
+import RegisterForm from './components/TopPage/RegisterForm';
 
 const App = () => {
   return (
     <div className='App'>
       <Login />
-      <Register />
+      <RegisterForm />
       <SliderImg />
       <Topics />
       <Routes>

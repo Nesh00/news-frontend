@@ -5,7 +5,7 @@ import { createUser } from '../../utils/api';
 import { CloseBtn } from '../Buttons/Buttons';
 import Form from '../Form';
 
-const Register = () => {
+const RegisterForm = () => {
   const { openRegister, setOpenRegister } = useContext(RegisterContext);
   const [username, setUsername] = useState('');
   const [name, setName] = useState('');
@@ -88,4 +88,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default RegisterForm;
