@@ -62,6 +62,7 @@ const Login = () => {
             onChange={getInput}
           />
         </label>
+        <button className={styles.login__btn}>Login</button>
         <p className={styles.register}>
           Don't have an account?{' '}
           <button
