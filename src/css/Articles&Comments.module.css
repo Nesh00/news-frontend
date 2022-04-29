@@ -47,7 +47,8 @@
 }
 
 .newArticle__btn {
-  padding: 1.5rem;
+  align-self: center;
+  padding: 1.3rem 2rem;
   font-size: 1.7rem;
   border: none;
   border-radius: 5px;
@@ -260,10 +261,6 @@
 }
 
 @media screen and (min-width: 36.5em) {
-  .create__article--btn {
-    /* width: 100%; */
-  }
-
   .newArticle__header {
     font-size: 2.2rem;
   }
@@ -296,7 +293,6 @@
   }
 
   .newArticle__btn {
-    align-self: center;
     padding: 1.5rem 4rem;
     font-size: 2.2rem;
   }
