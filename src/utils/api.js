@@ -28,6 +28,13 @@ export const getArticleById = (article_id) => {
     .then(({ data }) => data.article);
 };
 
+export const postArticle = (newArticle) => {
+  return baseApi.post('/articles', newArticle).then(({ data }) => {
+    console.log(data);
+    return data.article;
+  });
+};
+
 export const updateArticleVote = (article_id, newVote) => {
   return baseApi.patch(`/articles/${article_id}`, newVote);
 };
