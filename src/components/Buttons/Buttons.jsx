@@ -59,10 +59,11 @@ export const AddCommentBtn = ({ size, setIsOpen }) => {
   );
 };
 
-export const EditBtn = ({ size, item, openEditFormHandler }) => {
+export const EditBtn = ({ size, item, openEditFormHandler, style }) => {
   return (
     <button className={styles.edit__comment}>
       <FontAwesomeIcon
+        className={style}
         icon={faEllipsis}
         size={size}
         color='#ada9a9'

@@ -6,6 +6,18 @@
   list-style: none;
 }
 
+.edit__article--btn {
+  margin-right: 0.2rem;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.edit__article--header {
+  width: 100%;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
 .create__article--btn {
   width: 92%;
   margin-left: 1.5rem;
@@ -110,6 +122,8 @@
 }
 
 .link--disabled {
+  display: flex;
+  flex-direction: column;
   pointer-events: none;
   cursor: default;
 }
@@ -261,6 +275,10 @@
 }
 
 @media screen and (min-width: 36.5em) {
+  .edit__article--header {
+    font-size: 2.2rem;
+  }
+
   .newArticle__header {
     font-size: 2.2rem;
   }
@@ -284,6 +302,10 @@
 }
 
 @media screen and (min-width: 46em) {
+  .edit__article--header {
+    font-size: 2.3rem;
+  }
+
   .newArticle__header {
     font-size: 2.8rem;
   }
@@ -349,6 +371,10 @@
 }
 
 @media screen and (min-width: 76em) {
+  .edit__article--header {
+    font-size: 2.6rem;
+  }
+
   .comment__form {
     width: 30%;
   }

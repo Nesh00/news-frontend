@@ -7,13 +7,16 @@ import {
   formatDate,
 } from '../../utils/helperFunctions.util';
 import { UserContext } from '../../contexts/UserContext';
-import { AddCommentBtn, VoteBtn } from '../Buttons/Buttons';
+import { AddCommentBtn, EditBtn, VoteBtn } from '../Buttons/Buttons';
+import EditArticleForm from './EditArticleForm';
 
 const Article = ({ article, articleById, setIsOpen }) => {
   const { user } = useContext(UserContext);
+  const [newArticle, setNewArticle] = useState(article);
   const [eachUser, setEachUser] = useState();
   const [isLoaded, setIsLoaded] = useState(false);
   const [newVote, setNewVote] = useState(1);
+  const [openEditForm, setOpenEditForm] = useState(false);
 
   useEffect(() => {
     getUser(article.author).then((userData) => {
@@ -21,6 +24,10 @@ const Article = ({ article, articleById, setIsOpen }) => {
       setIsLoaded(true);
     });
   }, [article.author]);
+
+  const openEditFormHandler = () => {
+    setOpenEditForm((currState) => !currState);
+  };
 
   return (
     isLoaded && (
@@ -31,6 +38,14 @@ const Article = ({ article, articleById, setIsOpen }) => {
             articleById && styles['link--disabled']
           }`}
         >
+          {user && articleById && (
+            <EditBtn
+              style={styles['edit__article--btn']}
+              size={'2x'}
+              item={'article'}
+              openEditFormHandler={openEditFormHandler}
+            />
+          )}
           <div className={styles.user__container}>
             <p className={styles.user__details}>
               <img
@@ -38,21 +53,23 @@ const Article = ({ article, articleById, setIsOpen }) => {
                 alt={eachUser.name}
                 className={styles.user__avatar}
               />
-              {article.author}
+              {newArticle.author}
             </p>
             <p className={styles.created_at}>
-              {formatDate(article.created_at)}
+              {formatDate(newArticle.created_at)}
             </p>
           </div>
-          <h2 className={styles.article__header}>{article.title}</h2>
+          <h2 className={styles.article__header}>{newArticle.title}</h2>
         </Link>
-        {articleById && <p className={styles.article__body}>{article.body}</p>}
+        {articleById && (
+          <p className={styles.article__body}>{newArticle.body}</p>
+        )}
         <div className={styles.votes__container}>
-          <p className={styles.votes}>{article.votes} votes</p>
+          <p className={styles.votes}>{newArticle.votes} votes</p>
           {checkMatchingUser(user, eachUser) || !user || (
             <VoteBtn
               size={'2x'}
-              component={article}
+              component={newArticle}
               newVote={newVote}
               setNewVote={setNewVote}
             />
@@ -61,10 +78,17 @@ const Article = ({ article, articleById, setIsOpen }) => {
             <AddCommentBtn setIsOpen={setIsOpen} size={'2x'} />
           ) : (
             <p className={styles.comment_count}>
-              {article.comment_count} comments
+              {newArticle.comment_count} comments
             </p>
           )}
         </div>
+        {openEditForm && (
+          <EditArticleForm
+            setOpenEditForm={setOpenEditForm}
+            newArticle={newArticle}
+            setNewArticle={setNewArticle}
+          />
+        )}
       </>
     )
   );
