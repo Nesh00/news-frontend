@@ -30,9 +30,14 @@ export const getArticleById = (article_id) => {
 
 export const postArticle = (newArticle) => {
   return baseApi.post('/articles', newArticle).then(({ data }) => {
-    console.log(data);
     return data.article;
   });
+};
+
+export const editArticle = (article_id, editedArticle) => {
+  return baseApi
+    .patch(`/articles/${article_id}`, editedArticle)
+    .then(({ data }) => data.article);
 };
 
 export const updateArticleVote = (article_id, newVote) => {
