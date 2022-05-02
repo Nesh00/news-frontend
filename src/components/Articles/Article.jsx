@@ -38,7 +38,7 @@ const Article = ({ article, articleById, setIsOpen }) => {
             articleById && styles['link--disabled']
           }`}
         >
-          {user && articleById && (
+          {user && articleById && checkMatchingUser(user, eachUser) && (
             <EditBtn
               style={styles['edit__article--btn']}
               size={'2x'}
