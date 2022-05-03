@@ -1,6 +1,6 @@
 # nC-news
 
-_A mobile-first, responsive Front-End app build with ReactJS and CSS-modules which interacts with my own API. It's a news article app where you can view, like/unlike and leave comments on articles._
+_A mobile-first, responsive Front-End app build with ReactJS and CSS-modules which interacts with my own API. It's a news article app where you can create and edit articles, also you can view, like and leave comments on articles._
 
 **Live URL**: [https://nenad-nc-news.netlify.app](https://nenad-nc-news.netlify.app)
 
@@ -66,9 +66,7 @@ npm start
 
 My future goal for this app is:
 
-- Add a create new user form
 - Add pagination on both articles and comments
-- Edit your own comments
-- As user you can create, edit and delete your own articles
+- Delete your own articles
 
 ---
